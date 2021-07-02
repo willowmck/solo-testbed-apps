@@ -3,8 +3,8 @@ kind: Upstream
 metadata:
   labels:
     discovered_by: kubernetesplugin
-  name: default-httpbin-8000
-  namespace: gloo-system
+  name: httpbin-httpbin-8000
+  namespace: httpbin
 spec:
   discoveryMetadata:
     labels:
@@ -14,7 +14,8 @@ spec:
     selector:
       app: httpbin
     serviceName: httpbin
-    serviceNamespace: default
+    #serviceNamespace: default
+    serviceNamespace: httpbin
     servicePort: 8000
     serviceSpec:
       rest:
