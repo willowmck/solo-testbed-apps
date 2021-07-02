@@ -16,4 +16,4 @@ spec:
         single:
           upstream:
             name: default-httpbin-8000
-            namespace: gloo-system
+            namespace: httpbin
