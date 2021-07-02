@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: bookinfo/
+    path: kustomize/instances/overlays/frontend/bookinfo/
   destination:
     server: https://kubernetes.default.svc
     namespace: bookinfo
