@@ -13,7 +13,7 @@ spec:
     path: kustomize/instances/overlays/frontend/bookinfo/
   destination:
     server: https://kubernetes.default.svc
-    namespace: bookinfo-v1
+    namespace: bookinfov
   syncPolicy:
     automated:
       prune: false # Specifies if resources should be pruned during auto-syncing ( false by default ).
