@@ -13,10 +13,10 @@ spec:
     path: kustomize/instances/overlays/frontend/bookinfo/
   destination:
     server: https://kubernetes.default.svc
-    namespace: bookinfovv
+    namespace: bookinfo-v2
   syncPolicy:
     automated:
-      prune: false # Specifies if resources should be pruned during auto-syncing ( false by default ).
-      selfHeal: false # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+      prune: false
+      selfHeal: false
     syncOptions:
       - CreateNamespace=true
