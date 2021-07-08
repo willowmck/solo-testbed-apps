@@ -16,16 +16,7 @@ spec:
     namespace: bookinfo-v2
   syncPolicy:
     automated:
-      prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
-      selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+      prune: false # Specifies if resources should be pruned during auto-syncing ( false by default ).
+      selfHeal: false # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
     syncOptions:
-    - CreateNamespace=true
-  #ignoreDifferences:
-  #- group: apps
-  #  kind: Deployment
-  #  jsonPointers:
-  #  - /spec/replicas
-  #- group: route.openshift.io
-  #  kind: Route
-  #  jsonPointers:
-  #  - /status
+      - CreateNamespace=true
