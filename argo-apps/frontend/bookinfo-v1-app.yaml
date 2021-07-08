@@ -13,7 +13,7 @@ spec:
     path: kustomize/instances/overlays/frontend/bookinfo/
   destination:
     server: https://kubernetes.default.svc
-    namespace: bookinfo
+    namespace: bookinfo-v1
   syncPolicy:
     automated:
       prune: false
