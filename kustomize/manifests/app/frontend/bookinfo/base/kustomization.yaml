@@ -5,5 +5,4 @@ kind: Kustomization
 # list of Resource Config to be Applied
 resources:
 - bookinfo.yaml
-- bookinfo-vs.yaml
 
