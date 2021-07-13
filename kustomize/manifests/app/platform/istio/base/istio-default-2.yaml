@@ -5,12 +5,8 @@ metadata:
   namespace: istio-system
 spec:
   profile: default
-  hub: docker.io/istio
-  tag: "1.10.2"
-  revision: 1-10-2
-  meshConfig:
-    accessLogFile: /dev/stdout
-  components:
-    egressGateways:
-    - name: istio-egressgateway
-      enabled: false
+  #hub: docker.io/istio
+  #tag: "1.10.2"
+  #revision: 1-10-2
+  #meshConfig:
+  #  accessLogFile: /dev/stdout
