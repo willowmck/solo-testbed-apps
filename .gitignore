@@ -1,1 +1,3 @@
 argo-apps/platform/gloo-edge/gloo-edge-ee-helm.yaml
+argo-apps/platform/gloo-mesh/gloo-mesh-ee-helm.yaml
+

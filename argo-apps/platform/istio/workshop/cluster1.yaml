@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gloo-mesh-workshop-cluster1
+  name: workshop-istio-cluster1
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
