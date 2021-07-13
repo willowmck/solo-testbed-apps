@@ -15,7 +15,7 @@ spec:
     helm:
       values: |
         relay:
-          serverAddress: 172.18.1.2:9900
+          serverAddress: 172.18.1.1:9900
           authority: "cluster.local"
           cluster: cluster1
     repoURL: https://storage.googleapis.com/gloo-mesh-enterprise/enterprise-agent
