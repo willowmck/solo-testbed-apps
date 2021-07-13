@@ -1,12 +1,11 @@
 apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
 metadata:
-  name: istiocontrolplane-default
+  name: istio-default-profile
   namespace: istio-system
 spec:
-  profile: default
   meshConfig:
-    trustDomain: cluster1
+    trustDomain: cluster2
     accessLogFile: /dev/stdout
     enableAutoMtls: true
     defaultConfig:
@@ -17,17 +16,17 @@ spec:
       proxyMetadata:
         ISTIO_META_DNS_CAPTURE: "true"
         ISTIO_META_DNS_AUTO_ALLOCATE: "true"
-        GLOO_MESH_CLUSTER_NAME: cluster1
+        GLOO_MESH_CLUSTER_NAME: cluster2
   values:
     global:
       meshID: mesh1
       multiCluster:
-        clusterName: cluster1
-      network: network1
+        clusterName: cluster2
+      network: network2
       meshNetworks:
-        network1:
+        network2:
           endpoints:
-          - fromRegistry: cluster1
+          - fromRegistry: cluster2
           gateways:
           - registryServiceName: istio-ingressgateway.istio-system.svc.cluster.local
             port: 443
@@ -36,7 +35,7 @@ spec:
     ingressGateways:
     - name: istio-ingressgateway
       label:
-        topology.istio.io/network: network1
+        topology.istio.io/network: network2
       enabled: true
       k8s:
         env:
@@ -45,7 +44,7 @@ spec:
             value: "sni-dnat"
           # traffic through this gateway should be routed inside the network
           - name: ISTIO_META_REQUESTED_NETWORK_VIEW
-            value: network1
+            value: network2
         service:
           ports:
             - name: http2
