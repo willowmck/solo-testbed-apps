@@ -4,4 +4,4 @@ kind: Kustomization
 
 # list of Resource Config to be Applied
 resources:
-- istio-demo.yaml
+- istio-default.yaml
