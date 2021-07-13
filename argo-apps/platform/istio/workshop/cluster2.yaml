@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-workshop-profile
+  name: gloo-mesh-workshop-cluster2
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/instances/overlays/platform/istio/profiles/workshop/
+    path: kustomize/instances/overlays/platform/istio/profiles/workshop/cluster2/
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system
