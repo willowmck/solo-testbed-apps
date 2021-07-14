@@ -6,4 +6,4 @@ bases:
 
 resources:
 - reviews-v1.yaml
-- reviews-v2.yaml
+#- reviews-v2.yaml
