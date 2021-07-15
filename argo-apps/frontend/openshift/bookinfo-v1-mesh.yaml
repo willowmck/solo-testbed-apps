@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/environments/overlays/openshift/bookinfo-v1/
+    path: kustomize/environments/overlays/openshift/bookinfo-v1/istio/
   destination:
     server: https://kubernetes.default.svc
     namespace: bookinfo-v1
