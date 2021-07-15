@@ -13,7 +13,7 @@ spec:
     path: kustomize/instances/overlays/platform/knative/knative-eventing/
   destination:
     server: https://kubernetes.default.svc
-    namespace: knative-operator
+    namespace: knative-eventing
   syncPolicy:
     automated:
       prune: false
