@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: knative-operator
+
+bases: 
+- ../../../../../manifests/app/platform/knative/base/knative-eventing/
