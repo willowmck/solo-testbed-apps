@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: knative-operator
+  name: knative-serving
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
