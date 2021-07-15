@@ -5,3 +5,6 @@ namespace: knative-serving
 
 bases: 
 - ../../../../../manifests/app/platform/knative/base/knative-serving/
+
+resources:
+- serving-default-domain.yaml
