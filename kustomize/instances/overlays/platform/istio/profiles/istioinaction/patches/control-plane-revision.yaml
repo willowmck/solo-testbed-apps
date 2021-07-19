@@ -3,5 +3,4 @@ kind: IstioOperator
 metadata:
   name: control-plane
 spec:
-  profile: minimal
   revision: 1-9-5

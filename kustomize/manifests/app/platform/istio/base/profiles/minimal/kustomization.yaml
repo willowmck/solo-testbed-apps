@@ -4,5 +4,4 @@ kind: Kustomization
 
 # list of Resource Config to be Applied
 resources:
-- istiod-service.yaml
-- istio-1-9-5.yaml
+- istio-minimal.yaml

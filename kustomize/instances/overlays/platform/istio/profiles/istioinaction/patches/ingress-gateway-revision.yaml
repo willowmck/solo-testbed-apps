@@ -1,0 +1,6 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  name: istio-ingress-gw-install
+spec:
+  revision: 1-9-5
