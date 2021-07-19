@@ -9,6 +9,7 @@ bases:
 resources:
 - istiod-service.yaml
 - ingress-gateway.yaml
+- istio-ingress-ns.yaml
 
 patchesStrategicMerge:
 - patches/control-plane-revision.yaml
