@@ -18,7 +18,7 @@ spec:
       cache_duration: 10
       cache_enabled: true
       cache_expiration: 300
-      url: "http://prom-kube-prometheus-stack-prometheus.prometheus:9090"    
+      url: "http://prometheus-operator-helm-k-prometheus:9090/"    
 
 ###################################################################
 # kiali_cr.yaml
