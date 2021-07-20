@@ -8,9 +8,9 @@ bases:
 # list of Resource Config to be Applied
 resources:
 - istiod-service.yaml
-- ingress-gateway.yaml
+#- ingress-gateway.yaml
 - istio-ingress-ns.yaml
 
 patchesStrategicMerge:
 - patches/control-plane-revision.yaml
-- patches/ingress-gateway-revision.yaml
+#- patches/ingress-gateway-revision.yaml
