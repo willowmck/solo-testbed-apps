@@ -13,7 +13,7 @@ spec:
     path: kustomize/instances/overlays/platform/istio/profiles/istioinaction/ingress-gateway/
   destination:
     server: https://kubernetes.default.svc
-    namespace: istio-ingress
+    namespace: istio-system
   syncPolicy:
     automated:
       prune: false

@@ -10,4 +10,4 @@ resources:
 - istiod-service.yaml
 
 patchesStrategicMerge:
-- patches/control-plane-revision.yaml
+- patches/istioinaction-patch.yaml
