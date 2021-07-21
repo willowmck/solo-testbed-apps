@@ -3,5 +3,5 @@ kind: Namespace
 metadata:
   labels:
     istio.io/rev: 1-9-5
-    #istio-injection: enabled
+    istio-injection: enabled
   name: web-api

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sleep-app
+  name: istio-simulator-5-namespaces
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/instances/overlays/frontend/sleep/
+    path: kustomize/instances/overlays/frontend/istio-simulator/
   destination:
     server: https://kubernetes.default.svc
     #namespace: default
