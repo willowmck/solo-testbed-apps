@@ -1,0 +1,10 @@
+# kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases: 
+- ../../../../instances/overlays/platform/istio/monitoring/
+- ../../../../instances/overlays/platform/kiali/
+
+resources:
+- 1-9-5-configmap.yaml

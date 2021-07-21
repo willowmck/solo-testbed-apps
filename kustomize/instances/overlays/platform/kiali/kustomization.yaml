@@ -4,6 +4,3 @@ kind: Kustomization
 
 bases: 
 - ../../../../manifests/app/platform/kiali/base/
-
-resources:
-- 1-9-5-configmap.yaml

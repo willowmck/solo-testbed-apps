@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gloo-mesh-enterprise-helm
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: gloo-mesh
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: gloo-mesh-enterprise
+    helm:
+      values: |
+        licenseKey: eyJleHAiOjEwODM2ODA1NjM2LCJpYXQiOjE2MTM0MzM2MDAsImsiOiJ1OW96cGciLCJsdCI6ImVudCIsInByb2R1Y3QiOiJnbG9vLW1lc2gifQ.B3DZLuSUSVS_kTNC9nCt6BCDXqaXWLzj6Sw0cYjvkCE       
+    repoURL: https://storage.googleapis.com/gloo-mesh-enterprise/gloo-mesh-enterprise 
+    targetRevision: 1.0.14
+  syncPolicy:
+    automated:
+      prune: false # Specifies if resources should be pruned during auto-syncing ( false by default ).
+      selfHeal: false # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    syncOptions:
+      - CreateNamespace=true
