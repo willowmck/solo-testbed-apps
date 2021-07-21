@@ -1,0 +1,891 @@
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns-2
+  labels:
+    istio-injection: enabled
+    seed: "1001"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cold-resonance
+  namespace: ns-2
+  labels:
+    app: cold-resonance
+    tier: "2"
+    seed: "1001"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cold-resonance
+  namespace: ns-2
+  labels:
+    app: cold-resonance
+    tier: "2"
+    seed: "1001"
+spec:
+  selector:
+    app: cold-resonance
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cold-resonance-v1
+  namespace: ns-2
+  labels:
+    app: cold-resonance
+    version: v1
+    tier: "2"
+    seed: "1001"
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+        app: cold-resonance
+        version: v1
+  template:
+    metadata:
+      labels:
+        app: cold-resonance
+        version: v1
+      annotations:
+        sidecar.istio.io/proxyMemoryLimit: "1Gi"
+        sidecar.istio.io/proxyCPULimit: "2"
+        sidecar.istio.io/proxyMemory: "128Mi"
+        sidecar.istio.io/proxyCPU: "10m"
+    spec:
+      serviceAccountName: cold-resonance
+      containers:
+      - name: cold-resonance
+        image: ghcr.io/nmnellis/fake-service:v2
+        ports:
+        - containerPort: 8080
+        securityContext:
+          runAsUser: 1001
+        env:
+        - name: "LISTEN_ADDR"
+          value: "0.0.0.0:8080"
+        - name: "NAME"
+          value: "cold-resonance-v1"
+        - name: "SERVER_TYPE"
+          value: "http"
+        - name: "MESSAGE"
+          value: "Hello From cold-resonance (v1)!"
+        - name: "UPSTREAM_URIS"
+          value: "http://spring-night.ns-2.svc.cluster.local.:8080,http://lingering-glitter.ns-2.svc.cluster.local.:8080,http://winter-sky.ns-4.svc.cluster.local.:8080"
+        - name: "UPSTREAM_WORKERS"
+          value: "50"
+        - name: "TIMING_50_PERCENTILE"
+          value: "5ms"
+        - name: "TIMING_90_PERCENTILE"
+          value: "10ms"
+        - name: "TIMING_99_PERCENTILE"
+          value: "20ms"
+        - name: "HTTP_CLIENT_REQUEST_TIMEOUT"
+          value: "30s"
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "10m"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: lingering-glitter
+  namespace: ns-2
+  labels:
+    app: lingering-glitter
+    tier: "3"
+    seed: "1001"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lingering-glitter
+  namespace: ns-2
+  labels:
+    app: lingering-glitter
+    tier: "3"
+    seed: "1001"
+spec:
+  selector:
+    app: lingering-glitter
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lingering-glitter-v1
+  namespace: ns-2
+  labels:
+    app: lingering-glitter
+    version: v1
+    tier: "3"
+    seed: "1001"
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+        app: lingering-glitter
+        version: v1
+  template:
+    metadata:
+      labels:
+        app: lingering-glitter
+        version: v1
+      annotations:
+        sidecar.istio.io/proxyMemoryLimit: "1Gi"
+        sidecar.istio.io/proxyCPULimit: "2"
+        sidecar.istio.io/proxyMemory: "128Mi"
+        sidecar.istio.io/proxyCPU: "10m"
+    spec:
+      serviceAccountName: lingering-glitter
+      containers:
+      - name: lingering-glitter
+        image: ghcr.io/nmnellis/fake-service:v2
+        ports:
+        - containerPort: 8080
+        securityContext:
+          runAsUser: 1001
+        env:
+        - name: "LISTEN_ADDR"
+          value: "0.0.0.0:8080"
+        - name: "NAME"
+          value: "lingering-glitter-v1"
+        - name: "SERVER_TYPE"
+          value: "http"
+        - name: "MESSAGE"
+          value: "Hello From lingering-glitter (v1)!"
+        - name: "UPSTREAM_URIS"
+          value: "http://old-glade.ns-2.svc.cluster.local.:8080,http://morning-surf.ns-2.svc.cluster.local.:8080"
+        - name: "UPSTREAM_WORKERS"
+          value: "50"
+        - name: "TIMING_50_PERCENTILE"
+          value: "5ms"
+        - name: "TIMING_90_PERCENTILE"
+          value: "10ms"
+        - name: "TIMING_99_PERCENTILE"
+          value: "20ms"
+        - name: "HTTP_CLIENT_REQUEST_TIMEOUT"
+          value: "30s"
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "10m"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: morning-surf
+  namespace: ns-2
+  labels:
+    app: morning-surf
+    tier: "4"
+    seed: "1001"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: morning-surf
+  namespace: ns-2
+  labels:
+    app: morning-surf
+    tier: "4"
+    seed: "1001"
+spec:
+  selector:
+    app: morning-surf
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: morning-surf-v1
+  namespace: ns-2
+  labels:
+    app: morning-surf
+    version: v1
+    tier: "4"
+    seed: "1001"
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+        app: morning-surf
+        version: v1
+  template:
+    metadata:
+      labels:
+        app: morning-surf
+        version: v1
+      annotations:
+        sidecar.istio.io/proxyMemoryLimit: "1Gi"
+        sidecar.istio.io/proxyCPULimit: "2"
+        sidecar.istio.io/proxyMemory: "128Mi"
+        sidecar.istio.io/proxyCPU: "10m"
+    spec:
+      serviceAccountName: morning-surf
+      containers:
+      - name: morning-surf
+        image: ghcr.io/nmnellis/fake-service:v2
+        ports:
+        - containerPort: 8080
+        securityContext:
+          runAsUser: 1001
+        env:
+        - name: "LISTEN_ADDR"
+          value: "0.0.0.0:8080"
+        - name: "NAME"
+          value: "morning-surf-v1"
+        - name: "SERVER_TYPE"
+          value: "http"
+        - name: "MESSAGE"
+          value: "Hello From morning-surf (v1)!"
+        - name: "UPSTREAM_URIS"
+          value: ""
+        - name: "UPSTREAM_WORKERS"
+          value: "50"
+        - name: "TIMING_50_PERCENTILE"
+          value: "5ms"
+        - name: "TIMING_90_PERCENTILE"
+          value: "10ms"
+        - name: "TIMING_99_PERCENTILE"
+          value: "20ms"
+        - name: "HTTP_CLIENT_REQUEST_TIMEOUT"
+          value: "30s"
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "10m"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: old-glade
+  namespace: ns-2
+  labels:
+    app: old-glade
+    tier: "4"
+    seed: "1001"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: old-glade
+  namespace: ns-2
+  labels:
+    app: old-glade
+    tier: "4"
+    seed: "1001"
+spec:
+  selector:
+    app: old-glade
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: old-glade-v1
+  namespace: ns-2
+  labels:
+    app: old-glade
+    version: v1
+    tier: "4"
+    seed: "1001"
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+        app: old-glade
+        version: v1
+  template:
+    metadata:
+      labels:
+        app: old-glade
+        version: v1
+      annotations:
+        sidecar.istio.io/proxyMemoryLimit: "1Gi"
+        sidecar.istio.io/proxyCPULimit: "2"
+        sidecar.istio.io/proxyMemory: "128Mi"
+        sidecar.istio.io/proxyCPU: "10m"
+    spec:
+      serviceAccountName: old-glade
+      containers:
+      - name: old-glade
+        image: ghcr.io/nmnellis/fake-service:v2
+        ports:
+        - containerPort: 8080
+        securityContext:
+          runAsUser: 1001
+        env:
+        - name: "LISTEN_ADDR"
+          value: "0.0.0.0:8080"
+        - name: "NAME"
+          value: "old-glade-v1"
+        - name: "SERVER_TYPE"
+          value: "http"
+        - name: "MESSAGE"
+          value: "Hello From old-glade (v1)!"
+        - name: "UPSTREAM_URIS"
+          value: ""
+        - name: "UPSTREAM_WORKERS"
+          value: "50"
+        - name: "TIMING_50_PERCENTILE"
+          value: "5ms"
+        - name: "TIMING_90_PERCENTILE"
+          value: "10ms"
+        - name: "TIMING_99_PERCENTILE"
+          value: "20ms"
+        - name: "HTTP_CLIENT_REQUEST_TIMEOUT"
+          value: "30s"
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "10m"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: red-fire
+  namespace: ns-2
+  labels:
+    app: red-fire
+    tier: "2"
+    seed: "1001"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: red-fire
+  namespace: ns-2
+  labels:
+    app: red-fire
+    tier: "2"
+    seed: "1001"
+spec:
+  selector:
+    app: red-fire
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-fire-v1
+  namespace: ns-2
+  labels:
+    app: red-fire
+    version: v1
+    tier: "2"
+    seed: "1001"
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+        app: red-fire
+        version: v1
+  template:
+    metadata:
+      labels:
+        app: red-fire
+        version: v1
+      annotations:
+        sidecar.istio.io/proxyMemoryLimit: "1Gi"
+        sidecar.istio.io/proxyCPULimit: "2"
+        sidecar.istio.io/proxyMemory: "128Mi"
+        sidecar.istio.io/proxyCPU: "10m"
+    spec:
+      serviceAccountName: red-fire
+      containers:
+      - name: red-fire
+        image: ghcr.io/nmnellis/fake-service:v2
+        ports:
+        - containerPort: 8080
+        securityContext:
+          runAsUser: 1001
+        env:
+        - name: "LISTEN_ADDR"
+          value: "0.0.0.0:8080"
+        - name: "NAME"
+          value: "red-fire-v1"
+        - name: "SERVER_TYPE"
+          value: "http"
+        - name: "MESSAGE"
+          value: "Hello From red-fire (v1)!"
+        - name: "UPSTREAM_URIS"
+          value: ""
+        - name: "UPSTREAM_WORKERS"
+          value: "50"
+        - name: "TIMING_50_PERCENTILE"
+          value: "5ms"
+        - name: "TIMING_90_PERCENTILE"
+          value: "10ms"
+        - name: "TIMING_99_PERCENTILE"
+          value: "20ms"
+        - name: "HTTP_CLIENT_REQUEST_TIMEOUT"
+          value: "30s"
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "10m"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: spring-night
+  namespace: ns-2
+  labels:
+    app: spring-night
+    tier: "3"
+    seed: "1001"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-night
+  namespace: ns-2
+  labels:
+    app: spring-night
+    tier: "3"
+    seed: "1001"
+spec:
+  selector:
+    app: spring-night
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-night-v1
+  namespace: ns-2
+  labels:
+    app: spring-night
+    version: v1
+    tier: "3"
+    seed: "1001"
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+        app: spring-night
+        version: v1
+  template:
+    metadata:
+      labels:
+        app: spring-night
+        version: v1
+      annotations:
+        sidecar.istio.io/proxyMemoryLimit: "1Gi"
+        sidecar.istio.io/proxyCPULimit: "2"
+        sidecar.istio.io/proxyMemory: "128Mi"
+        sidecar.istio.io/proxyCPU: "10m"
+    spec:
+      serviceAccountName: spring-night
+      containers:
+      - name: spring-night
+        image: ghcr.io/nmnellis/fake-service:v2
+        ports:
+        - containerPort: 8080
+        securityContext:
+          runAsUser: 1001
+        env:
+        - name: "LISTEN_ADDR"
+          value: "0.0.0.0:8080"
+        - name: "NAME"
+          value: "spring-night-v1"
+        - name: "SERVER_TYPE"
+          value: "http"
+        - name: "MESSAGE"
+          value: "Hello From spring-night (v1)!"
+        - name: "UPSTREAM_URIS"
+          value: "http://weathered-wood.ns-2.svc.cluster.local.:8080,http://wispy-bush.ns-2.svc.cluster.local.:8080"
+        - name: "UPSTREAM_WORKERS"
+          value: "50"
+        - name: "TIMING_50_PERCENTILE"
+          value: "5ms"
+        - name: "TIMING_90_PERCENTILE"
+          value: "10ms"
+        - name: "TIMING_99_PERCENTILE"
+          value: "20ms"
+        - name: "HTTP_CLIENT_REQUEST_TIMEOUT"
+          value: "30s"
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "10m"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-night-v2
+  namespace: ns-2
+  labels:
+    app: spring-night
+    version: v2
+    tier: "3"
+    seed: "1001"
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+        app: spring-night
+        version: v2
+  template:
+    metadata:
+      labels:
+        app: spring-night
+        version: v2
+      annotations:
+        sidecar.istio.io/proxyMemoryLimit: "1Gi"
+        sidecar.istio.io/proxyCPULimit: "2"
+        sidecar.istio.io/proxyMemory: "128Mi"
+        sidecar.istio.io/proxyCPU: "10m"
+    spec:
+      serviceAccountName: spring-night
+      containers:
+      - name: spring-night
+        image: ghcr.io/nmnellis/fake-service:v2
+        ports:
+        - containerPort: 8080
+        securityContext:
+          runAsUser: 1001
+        env:
+        - name: "LISTEN_ADDR"
+          value: "0.0.0.0:8080"
+        - name: "NAME"
+          value: "spring-night-v2"
+        - name: "SERVER_TYPE"
+          value: "http"
+        - name: "MESSAGE"
+          value: "Hello From spring-night (v2)!"
+        - name: "UPSTREAM_URIS"
+          value: "http://weathered-wood.ns-2.svc.cluster.local.:8080,http://wispy-bush.ns-2.svc.cluster.local.:8080"
+        - name: "UPSTREAM_WORKERS"
+          value: "50"
+        - name: "TIMING_50_PERCENTILE"
+          value: "5ms"
+        - name: "TIMING_90_PERCENTILE"
+          value: "10ms"
+        - name: "TIMING_99_PERCENTILE"
+          value: "20ms"
+        - name: "HTTP_CLIENT_REQUEST_TIMEOUT"
+          value: "30s"
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "10m"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: weathered-wood
+  namespace: ns-2
+  labels:
+    app: weathered-wood
+    tier: "4"
+    seed: "1001"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: weathered-wood
+  namespace: ns-2
+  labels:
+    app: weathered-wood
+    tier: "4"
+    seed: "1001"
+spec:
+  selector:
+    app: weathered-wood
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weathered-wood-v1
+  namespace: ns-2
+  labels:
+    app: weathered-wood
+    version: v1
+    tier: "4"
+    seed: "1001"
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+        app: weathered-wood
+        version: v1
+  template:
+    metadata:
+      labels:
+        app: weathered-wood
+        version: v1
+      annotations:
+        sidecar.istio.io/proxyMemoryLimit: "1Gi"
+        sidecar.istio.io/proxyCPULimit: "2"
+        sidecar.istio.io/proxyMemory: "128Mi"
+        sidecar.istio.io/proxyCPU: "10m"
+    spec:
+      serviceAccountName: weathered-wood
+      containers:
+      - name: weathered-wood
+        image: ghcr.io/nmnellis/fake-service:v2
+        ports:
+        - containerPort: 8080
+        securityContext:
+          runAsUser: 1001
+        env:
+        - name: "LISTEN_ADDR"
+          value: "0.0.0.0:8080"
+        - name: "NAME"
+          value: "weathered-wood-v1"
+        - name: "SERVER_TYPE"
+          value: "http"
+        - name: "MESSAGE"
+          value: "Hello From weathered-wood (v1)!"
+        - name: "UPSTREAM_URIS"
+          value: "http://wandering-resonance.ns-4.svc.cluster.local.:8080"
+        - name: "UPSTREAM_WORKERS"
+          value: "50"
+        - name: "TIMING_50_PERCENTILE"
+          value: "5ms"
+        - name: "TIMING_90_PERCENTILE"
+          value: "10ms"
+        - name: "TIMING_99_PERCENTILE"
+          value: "20ms"
+        - name: "HTTP_CLIENT_REQUEST_TIMEOUT"
+          value: "30s"
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "10m"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: wispy-bush
+  namespace: ns-2
+  labels:
+    app: wispy-bush
+    tier: "4"
+    seed: "1001"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wispy-bush
+  namespace: ns-2
+  labels:
+    app: wispy-bush
+    tier: "4"
+    seed: "1001"
+spec:
+  selector:
+    app: wispy-bush
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wispy-bush-v1
+  namespace: ns-2
+  labels:
+    app: wispy-bush
+    version: v1
+    tier: "4"
+    seed: "1001"
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+        app: wispy-bush
+        version: v1
+  template:
+    metadata:
+      labels:
+        app: wispy-bush
+        version: v1
+      annotations:
+        sidecar.istio.io/proxyMemoryLimit: "1Gi"
+        sidecar.istio.io/proxyCPULimit: "2"
+        sidecar.istio.io/proxyMemory: "128Mi"
+        sidecar.istio.io/proxyCPU: "10m"
+    spec:
+      serviceAccountName: wispy-bush
+      containers:
+      - name: wispy-bush
+        image: ghcr.io/nmnellis/fake-service:v2
+        ports:
+        - containerPort: 8080
+        securityContext:
+          runAsUser: 1001
+        env:
+        - name: "LISTEN_ADDR"
+          value: "0.0.0.0:8080"
+        - name: "NAME"
+          value: "wispy-bush-v1"
+        - name: "SERVER_TYPE"
+          value: "http"
+        - name: "MESSAGE"
+          value: "Hello From wispy-bush (v1)!"
+        - name: "UPSTREAM_URIS"
+          value: ""
+        - name: "UPSTREAM_WORKERS"
+          value: "50"
+        - name: "TIMING_50_PERCENTILE"
+          value: "5ms"
+        - name: "TIMING_90_PERCENTILE"
+          value: "10ms"
+        - name: "TIMING_99_PERCENTILE"
+          value: "20ms"
+        - name: "HTTP_CLIENT_REQUEST_TIMEOUT"
+          value: "30s"
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "10m"
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: withered-forest
+  namespace: ns-2
+  labels:
+    app: withered-forest
+    tier: "1"
+    seed: "1001"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: withered-forest
+  namespace: ns-2
+  labels:
+    app: withered-forest
+    tier: "1"
+    seed: "1001"
+spec:
+  selector:
+    app: withered-forest
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: withered-forest-v1
+  namespace: ns-2
+  labels:
+    app: withered-forest
+    version: v1
+    tier: "1"
+    seed: "1001"
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+        app: withered-forest
+        version: v1
+  template:
+    metadata:
+      labels:
+        app: withered-forest
+        version: v1
+      annotations:
+        sidecar.istio.io/proxyMemoryLimit: "1Gi"
+        sidecar.istio.io/proxyCPULimit: "2"
+        sidecar.istio.io/proxyMemory: "128Mi"
+        sidecar.istio.io/proxyCPU: "10m"
+    spec:
+      serviceAccountName: withered-forest
+      containers:
+      - name: withered-forest
+        image: ghcr.io/nmnellis/fake-service:v2
+        ports:
+        - containerPort: 8080
+        securityContext:
+          runAsUser: 1001
+        env:
+        - name: "LISTEN_ADDR"
+          value: "0.0.0.0:8080"
+        - name: "NAME"
+          value: "withered-forest-v1"
+        - name: "SERVER_TYPE"
+          value: "http"
+        - name: "MESSAGE"
+          value: "Hello From withered-forest (v1)!"
+        - name: "UPSTREAM_URIS"
+          value: "http://cold-resonance.ns-2.svc.cluster.local.:8080,http://red-fire.ns-2.svc.cluster.local.:8080"
+        - name: "UPSTREAM_WORKERS"
+          value: "50"
+        - name: "TIMING_50_PERCENTILE"
+          value: "5ms"
+        - name: "TIMING_90_PERCENTILE"
+          value: "10ms"
+        - name: "TIMING_99_PERCENTILE"
+          value: "20ms"
+        - name: "HTTP_CLIENT_REQUEST_TIMEOUT"
+          value: "30s"
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "10m"
+---

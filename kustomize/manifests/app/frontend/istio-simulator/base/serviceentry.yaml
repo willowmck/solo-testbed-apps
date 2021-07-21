@@ -1,0 +1,851 @@
+
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: github.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - github.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: stackoverflow.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - stackoverflow.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: jiathis.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - jiathis.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: amazon.co.uk
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - amazon.co.uk
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: eventbrite.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - eventbrite.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: bbc.co.uk
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - bbc.co.uk
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: cnn.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - cnn.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: usgs.gov
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - usgs.gov
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: randomlists.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - randomlists.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: yellowbook.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - yellowbook.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: sogou.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - sogou.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: cafepress.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - cafepress.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: utexas.edu
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - utexas.edu
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: etsy.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - etsy.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: liveinternet.ru
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - liveinternet.ru
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: slashdot.org
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - slashdot.org
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: tamu.edu
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - tamu.edu
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: diigo.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - diigo.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: xinhuanet.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - xinhuanet.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: newsvine.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - newsvine.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: yahoo.co.jp
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - yahoo.co.jp
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: dedecms.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - dedecms.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: digg.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - digg.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: bravesites.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - bravesites.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: youku.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - youku.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: netscape.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - netscape.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: blogger.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - blogger.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: illinois.edu
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - illinois.edu
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: imdb.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - imdb.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: psu.edu
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - psu.edu
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: mozilla.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - mozilla.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: washington.edu
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - washington.edu
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: kickstarter.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - kickstarter.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: lycos.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - lycos.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: fc2.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - fc2.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: mit.edu
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - mit.edu
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: quantcast.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - quantcast.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: tinyurl.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - tinyurl.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: addtoany.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - addtoany.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: soundcloud.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - soundcloud.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: yolasite.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - yolasite.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: trellian.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - trellian.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: wikipedia.org
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - wikipedia.org
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: biblegateway.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - biblegateway.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: surveymonkey.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - surveymonkey.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: examiner.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - examiner.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: tripadvisor.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - tripadvisor.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: 123-reg.co.uk
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - 123-reg.co.uk
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: nifty.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - nifty.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: dropbox.com
+  namespace: istio-system
+  labels:
+    seed: "1001"
+spec:
+  hosts:
+  - dropbox.com
+  location: MESH_EXTERNAL
+  ports:
+  - number: 443
+    name: https
+    protocol: TLS
+  resolution: DNS
+---
