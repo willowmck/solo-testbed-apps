@@ -3,5 +3,5 @@ kind: Namespace
 metadata:
   name: bookinfo-v1
   labels:
-    istio-injection: enabled
+    #istio-injection: enabled
     istio.io/rev: 1-9-5
