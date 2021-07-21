@@ -10,10 +10,10 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/instances/overlays/frontend/httpbin/default/
+    path: kustomize/instances/overlays/frontend/httpbin/istio-injected/
   destination:
     server: https://kubernetes.default.svc
-    namespace: httpbin
+    namespace: default
   syncPolicy:
     automated:
       prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).

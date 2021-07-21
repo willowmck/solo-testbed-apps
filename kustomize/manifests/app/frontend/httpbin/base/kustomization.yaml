@@ -5,6 +5,4 @@ kind: Kustomization
 # list of Resource Config to be Applied
 resources:
 - httpbin-svc-dpl.yaml
-- httpbin-upstream.yaml
-- httpbin-vs.yaml
 
