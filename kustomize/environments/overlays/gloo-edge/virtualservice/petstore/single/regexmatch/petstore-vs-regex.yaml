@@ -7,14 +7,14 @@ metadata:
 spec:
   virtualHost:
     domains:
-      - 'foo'
+      - 'petstore.solo.io'
     routes:
       - matchers:
          - regex: /[a-z]{5}
         routeAction:
           single:
-          upstream:
-            name: default-petstore-8080
-            namespace: gloo-system
+            upstream:
+              name: default-petstore-8080
+              namespace: gloo-system
         options:
           autoHostRewrite: true
