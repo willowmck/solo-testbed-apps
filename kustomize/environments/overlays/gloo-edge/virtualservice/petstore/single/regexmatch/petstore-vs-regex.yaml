@@ -16,5 +16,3 @@ spec:
             upstream:
               name: default-petstore-8080
               namespace: gloo-system
-        options:
-          autoHostRewrite: true
