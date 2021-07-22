@@ -11,8 +11,6 @@ spec:
     routes:
       - matchers:
          - regex: /[a-z]{5}
-        options:
-        prefixRewrite: /api/pets
         routeAction:
           single:
           upstream:
