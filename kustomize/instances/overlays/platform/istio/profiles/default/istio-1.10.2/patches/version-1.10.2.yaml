@@ -6,4 +6,3 @@ metadata:
 spec:
   hub: docker.io/istio
   tag: 1.10.2
-  #revision: 1-10-2
