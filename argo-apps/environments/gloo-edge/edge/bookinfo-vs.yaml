@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-monitoring
+  name: bookinfo-virtualservice
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,14 +10,11 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/environments/overlays/istioinaction/observability/
+    path: kustomize/instances/overlays/platform/gloo-edge/virtualservices
   destination:
     server: https://kubernetes.default.svc
-    namespace: prometheus
+    namespace: gloo-system
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-      - Replace=true
+      prune: false
+      selfHeal: false
