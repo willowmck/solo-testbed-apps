@@ -13,7 +13,7 @@ spec:
          - headers:
             - name: header1
               value: all-pets
-         - prefix: /
+         - exact: /all-pets
          options:
            prefixRewrite: /api/pets
         routeAction:
