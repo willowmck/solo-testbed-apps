@@ -9,8 +9,8 @@ spec:
     - 'petstore.solo.io'
     routes:
     - matchers:
-      #- headers:
-      #      - name: header1
+      - headers:
+            - name: header1
       #        value: value1
       #      - name: header2
       #        value: value2
