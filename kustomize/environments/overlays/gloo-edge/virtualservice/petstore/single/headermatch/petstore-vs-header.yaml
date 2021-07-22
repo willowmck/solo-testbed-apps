@@ -18,10 +18,8 @@ spec:
                 value: value1
               - 
                 name: header2
-          -
-            exact: /all-pets
+            prefix: /
         options: 
-          prefixRewrite: /api/pets
           autoHostRewrite: true
         routeAction: 
           single: 
