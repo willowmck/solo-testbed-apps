@@ -1,7 +1,7 @@
 apiVersion: gateway.solo.io/v1
 kind: VirtualService
 metadata:
-  name: petstore-vs
+  name: petstore-vs-exactmatch
   namespace: gloo-system
 spec:
   virtualHost:
