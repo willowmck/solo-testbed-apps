@@ -13,15 +13,6 @@ spec:
          - headers:
             - name: header1
               value: value1
-            - name: header2
-            - name: header3
-              regex: true
-              value: "[a-z]{1}"
-            - name: header4
-              invertMatch: true
-            - name: header5
-              value: value5
-              invertMatch: true
            prefix: /
         routeAction:
           single:
