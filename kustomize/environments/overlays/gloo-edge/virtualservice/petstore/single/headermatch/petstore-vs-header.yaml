@@ -2,12 +2,12 @@
 apiVersion: gateway.solo.io/v1
 kind: VirtualService
 metadata:
-  name: test-header
+  name: petstore-vs-headermatch
   namespace: gloo-system
 spec:
   virtualHost:
     domains:
-      - 'foo'
+      - 'petstore.solo.io'
     routes:
       - matchers:
          - headers:
@@ -26,7 +26,7 @@ spec:
         routeAction:
           single:
             upstream:
-              name: json-upstream
+              name: default-petstore-8080
               namespace: gloo-system
         options:
           autoHostRewrite: true
