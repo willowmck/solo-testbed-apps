@@ -7,10 +7,12 @@ metadata:
 spec:
   virtualHost:
     domains:
-      - 'foo'
+      - 'petstore.solo.io'
     routes:
       - matchers:
          - regex: /[a-z]{5}
+        options:
+        prefixRewrite: /api/pets
         routeAction:
           single:
           upstream:
