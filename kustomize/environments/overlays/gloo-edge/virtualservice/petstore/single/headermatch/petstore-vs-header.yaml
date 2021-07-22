@@ -9,12 +9,11 @@ spec:
     - 'petstore.solo.io'
     routes:
     - matchers:
-      - headers:
-            - name: header1
-      #        value: value1
-      #      - name: header2
-      #        value: value2
       - exact: /all-pets
+        headers:
+        - name: header1
+          regex: true
+          value: value1
       options:
         prefixRewrite: /api/pets
       routeAction:
