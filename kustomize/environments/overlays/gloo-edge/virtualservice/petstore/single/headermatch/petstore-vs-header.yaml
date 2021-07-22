@@ -18,7 +18,6 @@ spec:
                 value: value1
               - 
                 name: header2
-            prefix: /
           -
             exact: /all-pets
         options: 
