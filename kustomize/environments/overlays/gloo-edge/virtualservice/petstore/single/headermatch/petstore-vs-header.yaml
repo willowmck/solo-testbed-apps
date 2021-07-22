@@ -22,7 +22,7 @@ spec:
           -
             exact: /all-pets
         options: 
-          prefixrewrite: /api/pets
+          prefixRewrite: /api/pets
           autoHostRewrite: true
         routeAction: 
           single: 
