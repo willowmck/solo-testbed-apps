@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bookinfo-beta-app
+  name: bookinfo-v1-app
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,10 +10,10 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/instances/overlays/frontend/bookinfo-beta/
+    path: kustomize/instances/overlays/frontend/bookinfo-v1/default/
   destination:
     server: https://kubernetes.default.svc
-    namespace: bookinfo-beta
+    namespace: bookinfo-v1
   syncPolicy:
     automated:
       prune: false
