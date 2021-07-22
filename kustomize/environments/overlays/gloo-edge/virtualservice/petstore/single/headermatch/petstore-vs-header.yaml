@@ -10,9 +10,9 @@ spec:
     routes:
     - matchers:
       - exact: /all-pets
-      #- headers:
-      #      - name: header1
-      #        value: value1
+      - headers:
+            - name: header1
+              value: value1
       options:
         prefixRewrite: /api/pets
       routeAction:
