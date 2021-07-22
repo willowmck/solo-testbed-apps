@@ -2,17 +2,19 @@
 apiVersion: gateway.solo.io/v1
 kind: VirtualService
 metadata:
-  name: petstore-vs-regexmatch
+  name: test-regex
   namespace: gloo-system
 spec:
   virtualHost:
     domains:
-      - 'petstore.solo.io'
+      - 'foo'
     routes:
       - matchers:
          - regex: /[a-z]{5}
         routeAction:
           single:
             upstream:
-              name: default-petstore-8080
+              name: json-upstream
               namespace: gloo-system
+        options:
+          autoHostRewrite: true
