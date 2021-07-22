@@ -11,7 +11,7 @@ spec:
       - matchers:
           - prefix: /foo
         options:
-        prefixRewrite: /
+        prefixRewrite: /headers
         routeAction:
           single:
             upstream:
