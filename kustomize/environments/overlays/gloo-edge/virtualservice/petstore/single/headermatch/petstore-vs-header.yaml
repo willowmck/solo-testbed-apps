@@ -9,7 +9,7 @@ spec:
     - 'petstore.solo.io'
     routes:
     - matchers:
-      - exact: /all-pets
+      - prefix: /
       - headers:
             - name: header1
               value: value1
