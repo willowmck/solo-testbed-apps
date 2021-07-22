@@ -14,6 +14,8 @@ spec:
             - name: header1
               value: value1
            prefix: /
+           options:
+             prefixRewrite: /api/pets
         routeAction:
           single:
             upstream:
