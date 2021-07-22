@@ -12,6 +12,9 @@ spec:
       - exact: /all-pets
       options:
         prefixRewrite: /api/pets
+    - headers:
+      - name: header1
+        value: foo
       routeAction:
         single:
           upstream:
