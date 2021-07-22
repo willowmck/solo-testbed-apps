@@ -10,6 +10,8 @@ spec:
     routes:
       - matchers:
           - prefix: /foo
+        options:
+        prefixRewrite: /
         routeAction:
           single:
             upstream:
