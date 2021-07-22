@@ -9,9 +9,7 @@ spec:
       - 'httpbin.solo.io'
     routes:
       - matchers:
-          - prefix: /foo
-        options:
-        prefixRewrite: /headers
+          - prefix: /
         routeAction:
           single:
             upstream:
