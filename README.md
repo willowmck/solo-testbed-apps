@@ -4,6 +4,8 @@
 - bookinfo-v1 (only has reviews-v2)
 - bookinfo-beta (has reviews-v1 and reviews-v3)
 - httpbin
+- sleep
+- web-api
 
 ### Platform
 - argocd
