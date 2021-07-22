@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: meta-platform-apps
+  name: meta-frontend-apps
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: argo-apps/environments/istioinaction/testing/platform/
+    path: argo-apps/environments/istioinaction/testing/frontend/
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
