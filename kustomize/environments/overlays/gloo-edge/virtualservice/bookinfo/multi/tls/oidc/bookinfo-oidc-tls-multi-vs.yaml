@@ -1,7 +1,7 @@
 apiVersion: gateway.solo.io/v1
 kind: VirtualService
 metadata:
-  name: demo
+  name: bookinfo-oidc-tls-multi-vs
   namespace: gloo-system
 spec:
   sslConfig:
