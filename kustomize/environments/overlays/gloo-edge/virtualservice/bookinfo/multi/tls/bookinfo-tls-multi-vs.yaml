@@ -1,9 +1,16 @@
 apiVersion: gateway.solo.io/v1
 kind: VirtualService
 metadata:
-  name: bookinfo-multi-vs
+  name: bookinfo-tls-vs
   namespace: gloo-system
 spec:
+  # The SSL config below activate TLS on the Virtual Service
+  # ------------
+  sslConfig:
+    secretRef:
+      name: upstream-tls
+      namespace: gloo-system
+  # ------------    
   virtualHost:
     domains:
       - '*'
@@ -11,7 +18,6 @@ spec:
       - matchers:
           - prefix: /
         routeAction:
-        # ----------------------- Multi Destination ----------------------
             multi:
                 destinations:
                 - weight: 5
