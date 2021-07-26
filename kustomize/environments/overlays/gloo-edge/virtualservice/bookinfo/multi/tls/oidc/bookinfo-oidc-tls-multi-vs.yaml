@@ -1,17 +1,21 @@
 apiVersion: gateway.solo.io/v1
 kind: VirtualService
 metadata:
-  name: bookinfo-oidc-tls-multi-vs
+  name: demo
   namespace: gloo-system
 spec:
-  # The SSL config below activate TLS on the Virtual Service
-  # ------------
   sslConfig:
     secretRef:
       name: upstream-tls
-      namespace: gloo-system
-  # ------------    
+      namespace: gloo-system  
   virtualHost:
+# ------------------- OIDC -------------------
+    options:
+      extauth:
+        configRef:
+          name: keycloak-oauth
+          namespace: gloo-system
+#---------------------------------------------          
     domains:
       - '*'
     routes:
