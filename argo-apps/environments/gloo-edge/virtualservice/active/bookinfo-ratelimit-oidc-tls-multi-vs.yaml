@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/environments/overlays/gloo-edge/virtualservice/bookinfo/multi/tls/oidc/
+    path: kustomize/environments/overlays/gloo-edge/virtualservice/bookinfo/multi/tls/oidc/ratelimit/
   destination:
     server: https://kubernetes.default.svc
     namespace: gloo-system
