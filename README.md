@@ -40,11 +40,13 @@ Following Kustomize structure above
 
 ### Environments
 Environments - Argocd apps set up as a logical grouping (function or environment-specific) using the argocd app-of-apps pattern
+
     - meta - holds the app-of-app for the active directory
     - active - all applications pushed in this directory will be deployed
     - non-active - holding directory for non-active and test instances
 
 ### Instances
 Instances - Individual apps that have been created as an argo Application CRD. When creating an Environment, copy these individual instances into the the active/non-active directories as required
+
     - Frontend - generally customer facing apps that can be interacted with or used for demonstrations
     - Platform - generally backend apps that support platform functions (i.e. operators, observability, pub/sub, serverless)
