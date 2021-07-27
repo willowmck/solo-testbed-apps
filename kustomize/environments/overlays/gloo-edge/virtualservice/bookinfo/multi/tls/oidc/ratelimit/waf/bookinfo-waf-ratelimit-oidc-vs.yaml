@@ -1,0 +1,47 @@
+apiVersion: gateway.solo.io/v1
+kind: VirtualService
+metadata:
+  name: bookinfo-waf-ratelimit-oidc-tls-multi-vs
+  namespace: gloo-system
+spec:
+  sslConfig:
+    secretRef:
+      name: upstream-tls
+      namespace: gloo-system  
+  virtualHost:
+    options:
+      extauth:
+        configRef:
+          name: keycloak-oauth
+          namespace: gloo-system
+      rateLimitConfigs:
+        refs:
+        - name: global-limit
+          namespace: gloo-system
+# ---------------- Web Application Firewall -----------
+      waf:
+        customInterventionMessage: 'Username should only contain letters'
+        ruleSets:
+        - ruleStr: |
+            # Turn rule engine on
+            SecRuleEngine On
+            SecRule ARGS:/username/ "[^a-zA-Z]" "t:none,phase:2,deny,id:6,log,msg:'allow only letters in username'"
+#------------------------------------------------------
+    domains:
+      - '*'
+    routes:
+      - matchers:
+          - prefix: /
+        routeAction:
+            multi:
+                destinations:
+                - weight: 5
+                  destination:
+                      upstream:
+                          name: bookinfo-v1-productpage-9080
+                          namespace: gloo-system
+                - weight: 5
+                  destination:
+                      upstream:
+                          name: bookinfo-beta-productpage-9080
+                          namespace: gloo-system
