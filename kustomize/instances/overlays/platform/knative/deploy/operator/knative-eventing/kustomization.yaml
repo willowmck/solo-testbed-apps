@@ -4,4 +4,4 @@ kind: Kustomization
 namespace: knative-eventing
 
 bases: 
-- ../../../../../manifests/app/platform/knative/base/knative-eventing/
+- ../../../../../../../manifests/app/platform/knative/base/deploy/operator/knative-eventing

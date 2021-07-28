@@ -4,4 +4,4 @@ kind: Kustomization
 namespace: knative-operator
 
 bases: 
-- ../../../../manifests/app/platform/knative/base/
+- ../../../../../../manifests/app/platform/knative/base/deploy/operator/
