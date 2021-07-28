@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bookinfo-waf-ratelimit-oidc-tls-multi-vs
+  name: bookinfo-waf-gl-ratelimit-oidc-tls-multi-vs
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/environments/overlays/gloo-edge/virtualservice/bookinfo/multi/tls/oidc/ratelimit/waf/
+    path: kustomize/environments/overlays/gloo-edge/virtualservice/bookinfo/multi/tls/oidc/ratelimit/global/waf/
   destination:
     server: https://kubernetes.default.svc
     namespace: gloo-system
