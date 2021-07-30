@@ -5,7 +5,7 @@ metadata:
   namespace: gloo-system
 spec:
   bindAddress: '::'
-  bindPort: 1433
+  bindPort: 8000
   tcpGateway:
     tcpHosts:
     - name: one
