@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+- ../../../../../manifests/app/frontend/sockshop/base
+
+resources:
+- sockshop-ns.yaml
+- sockshop-gateway.yaml
+- sockshop-vs.yaml
