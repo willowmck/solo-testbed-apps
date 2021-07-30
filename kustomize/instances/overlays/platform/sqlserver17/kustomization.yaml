@@ -4,3 +4,6 @@ kind: Kustomization
 
 bases: 
 - ../../../../manifests/app/platform/sqlserver17/base/
+
+resources:
+- sa-password.yaml
