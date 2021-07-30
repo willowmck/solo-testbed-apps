@@ -102,7 +102,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: front-end
-  namespace: sock-shop
+  namespace: sockshop
 spec:
   hosts:
   - "*"
