@@ -112,7 +112,8 @@ spec:
   - route:
     - destination:
         host: front-end
-        subset: v1
+        port:
+          number: 8079
 
 ---
 apiVersion: networking.istio.io/v1alpha3
