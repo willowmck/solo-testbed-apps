@@ -6,10 +6,15 @@
 - httpbin
 - sleep
 - web-api
+- istio-simulator
+- petstore
+- sock-shop
 
 ### Platform
 - argocd
 - gloo-edge-oss helm chart
+- gloo-mesh-oss helm chart
+- gloo-portal-ee helm chart (requires EE license key secret)
 - istio/profiles
     - default
     - demo
@@ -22,7 +27,9 @@
     - kiali (helm)
     - istio dashboards and service monitors
 - grafana helm chart
-- gloo-mesh
+- knative-serving
+- sqlserver17
+- keycloak
 
 # Kustomize structure
 
