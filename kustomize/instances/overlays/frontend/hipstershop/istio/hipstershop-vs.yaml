@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: hipstershop-vs
+spec:
+  gateways:
+  - hipstershop-gateway
+  hosts:
+  - '*'
+  http:
+  - route:
+    - destination: 
+        host: front-end
+        port:
+          number: 80
