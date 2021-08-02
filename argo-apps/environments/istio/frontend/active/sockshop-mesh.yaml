@@ -13,7 +13,7 @@ spec:
     path: kustomize/instances/overlays/frontend/sockshop/istio/
   destination:
     server: https://kubernetes.default.svc
-    namespace: sockshop
+    namespace: sock-shop
   syncPolicy:
     automated:
       prune: false
