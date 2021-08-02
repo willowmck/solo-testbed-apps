@@ -9,6 +9,7 @@
 - istio-simulator
 - petstore
 - sock-shop
+- hipstershop
 
 ### Platform
 - argocd
