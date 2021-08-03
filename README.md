@@ -16,7 +16,9 @@
 - gloo-edge-oss helm chart
 - gloo-mesh-oss helm chart
 - gloo-portal-ee helm chart (requires EE license key secret)
-- istio/profiles
+- gloo-mesh-istio (istio builds by solo.io that are fully supportable)
+    - 1.9.5
+- istio/profiles (default istio community support)
     - default
     - demo
     - openshift
