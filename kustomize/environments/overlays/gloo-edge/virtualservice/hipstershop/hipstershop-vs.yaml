@@ -6,7 +6,7 @@ metadata:
 spec:
   virtualHost:
     domains:
-      - 'hipstershop.solo.io'
+      - '*'
     routes:
       - matchers:
           - prefix: /
