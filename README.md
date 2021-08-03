@@ -14,7 +14,9 @@
 ### Platform
 - argocd
 - gloo-edge-oss helm chart
+- gloo-edge-ee helm chart
 - gloo-mesh-oss helm chart
+- gloo-mesh-ee helm chart
 - gloo-portal-ee helm chart (requires EE license key secret)
 - gloo-mesh-istio (istio builds by solo.io that are fully supportable)
     - 1.9.5
