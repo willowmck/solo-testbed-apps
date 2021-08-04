@@ -1,0 +1,6 @@
+# kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases: 
+- ../../../../../../manifests/app/platform/gm-istio/base/1.10.3/
