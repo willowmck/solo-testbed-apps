@@ -1,3 +1,265 @@
-license_key: eyJleHAiOjM4Nzk1MTY3ODYsImlhdCI6MTU1NDk0MDM0OCwiayI6IkJ3ZXZQQSJ9.tbJ9I9AUltZ-iMmHBertugI2YIg1Z8Q0v6anRjc66Jo
+########################################################################
+###                                                                  ###
+###                        Gloo                                      ###
+###                                                                  ###
+########################################################################
+
+license_key: "eyJleHAiOjM4Nzk1MTY3ODYsImlhdCI6MTU1NDk0MDM0OCwiayI6IkJ3ZXZQQSJ9.tbJ9I9AUltZ-iMmHBertugI2YIg1Z8Q0v6anRjc66Jo"
+create_license_secret: true
+license_secret_name: license
+gloo:
+  settings:
+    integrations:
+      knative:
+        proxy:
+          image:
+            repository: gloo-ee-envoy-wrapper
+  gloo:
+    deployment:
+      image:
+        repository: gloo-ee
+  gatewayProxies:
+    gatewayProxy:
+      podTemplate:
+        image:
+          repository: gloo-ee-envoy-wrapper
+      service:
+        extraAnnotations:
+          prometheus.io/scrape: "true"
+          prometheus.io/path: /metrics
+          prometheus.io/port: "8081"
+        extraPorts:
+          - containerPort: 8081
+            name: stats
+            protocol: TCP
+  gateway:
+    updateValues: true
+  ingressProxy:
+    deployment:
+      image:
+        repository: gloo-ee-envoy-wrapper
+
+########################################################################
+###                                                                  ###
+###                        Apiserver                                 ###
+###                                                                  ###
+########################################################################
+apiServer:
+  enterprise: true
+  enable: true
+  enableBeta: true
+  deployment:
+    name: "grpcserver-ui"
+    runAsUser: 10101
+    server:
+      image:
+        name: apiserver
+        repository: grpcserver-ee
+      grpcPort: 10101
+      oauth: {}
+    ui:
+      image:
+        name: "gloo-ui"
+        repository: grpcserver-ui
+      staticPort: 8080
+    envoy:
+      image:
+        name: "grpcserver-envoy"
+        repository: grpcserver-envoy
+      bootstrapConfig:
+        configMapName: default-apiserver-envoy-config
+  service:
+    name: "apiserver-ui"
+    serviceType: ClusterIP
+
+redis:
+  deployment:
+    name: redis
+    image:
+      tag: "5"
+      repository: redis
+      registry: docker.io
+    staticPort: 6379
+    runAsUser: 999
+    runAsGroup: 999
+    fsGroup: 999
+    enablePodSecurityContext: true
+  service:
+    port: 6379
+    name: redis
+
+########################################################################
+###                                                                  ###
+###                        Observability                             ###
+###                                                                  ###
+########################################################################
+
+observability:
+  enabled: true
+  deployment:
+    name: observability
+    image:
+      repository: observability-ee
+    runAsUser: 10101
+  customGrafana:
+    enabled: false
+
+########################################################################
+###                                                                  ###
+###                        GLOBAL                                    ###
+###                                                                  ###
+########################################################################
+
+global:
+  image:
+    pullPolicy: IfNotPresent
+  glooRbac:
+    create: true
+  extensions:
+    ########################################################################
+    ###                                                                  ###
+    ###                        Rate Limit                                ###
+    ###                                                                  ###
+    ########################################################################
+    rateLimit:
+      # setting to false will disable rate limiting
+      enabled: true
+      deployment:
+        name: "rate-limit"
+        image:
+          repository: rate-limit-ee
+        glooAddress: gloo:9977
+        dynamodb:
+          region: us-east-2
+          tableName: rate-limits
+          consistentReads: true
+          batchSize: 100
+        runAsUser: 10101
+      service:
+        port: 18081
+        name: rate-limit
+    ########################################################################
+    ###                                                                  ###
+    ###                           Extauth                                ###
+    ###                                                                  ###
+    ########################################################################
+    extAuth:
+      enabled: true
+      standaloneDeployment: true
+      transportApiVersion: V3
+      envoySidecar: false
+      serviceName: ext-auth
+      userIdHeader: x-user-id
+      deployment:
+        name: "extauth"
+        image:
+          repository: extauth-ee
+        port: 8083
+        runAsUser: 10101
+        fsGroup: 10101
+      service:
+        port: 8083
+        name: extauth
+      signingKey:
+        name: extauth-signing-key
+        signing-key: ""
+  glooMtls:
+    envoy:
+      image:
+        repository: gloo-ee-envoy-wrapper
+  extraSpecs: true
+  extauthCustomYaml: false
+########################################################################
+###                                                                  ###
+###                        Prometheus                                ###
+###                                                                  ###
+########################################################################
+
+prometheus:
+  # setting to false will disable prometheus, removing it from gloo's chart dependencies
+  enabled: true
+  # setting these name overrides ensures that the pods get deleted when `glooctl uninstall` is run
+  nameOverride: glooe-prometheus
+  pushgateway:
+    enabled: false
+  alertmanager:
+    enabled: false
+  nodeExporter:
+    enabled: false
+  kube-state-metrics:
+    fullnameOverride: glooe-prometheus-kube-state-metrics
+  server:
+    fullnameOverride: glooe-prometheus-server
+    persistentVolume:
+      size: 16Gi
+    global:
+      scrape_interval: 10s
+      evaluation_interval: 10s
+########################################################################
+###                                                                  ###
+###                        Grafana                                   ###
+###                                                                  ###
+########################################################################
+
+grafana:
+  # setting to false will disable grafana, removing it from gloo's chart dependencies
+  defaultInstallationEnabled: true
+  adminUser: admin
+  adminPassword: admin
+  persistence:
+    enabled: true
+    size: 100Mi
+  rbac:
+    create: false
+    pspEnabled: false
+  # setting these name overrides ensures that the pods get deleted when `glooctl uninstall` is run
+  nameOverride: glooe-grafana
+  fullnameOverride: glooe-grafana
+  initChownData:
+    enabled: false
+  securityContext:
+    runAsUser: 472
+    runAsGroup: 472
+    fsGroup: 472
+  datasources:
+    datasources.yaml:
+      # config file version
+      apiVersion: 1
+      # list of datasources to insert/update depending
+      # what's available in the database
+      datasources:
+        # <string, required> name of the datasource. Required
+        - name: gloo
+          # <string, required> datasource type. Required
+          type: prometheus
+          access: proxy
+          url: http://glooe-prometheus-server:80
+          isDefault: true
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: "gloo"
+          orgId: 1
+          folder: "gloo"
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/gloo
+  dashboardsConfigMaps:
+    gloo: glooe-grafana-custom-dashboards
+  testFramework:
+    enabled: false
+########################################################################
+###                                                                  ###
+###                        Gloo Fed                                  ###
+###                                                                  ###
+########################################################################
+
 gloo-fed:
+  # TODO(#4556): Enable by default once glooctl changes are made to set this value based on --with-gloo-fed.
   enabled: false
+  # gloo-fed and gloo-ee both create a 'license' secret by default. When using gloo-fed as a
+  # subchart of gloo-ee we need to prevent the license secret from being created again.
+  create_license_secret: false
