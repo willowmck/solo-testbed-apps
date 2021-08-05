@@ -3,7 +3,8 @@ gloo-fed:
   create_license_secret: false
 
 gloo-ee:
-  license_key: "eyJleHAiOjM4Nzk1MTY3ODYsImlhdCI6MTU1NDk0MDM0OCwiayI6IkJ3ZXZQQSJ9.tbJ9I9AUltZ-iMmHBertugI2YIg1Z8Q0v6anRjc66Jo"
+  create_license_secret: false
+  license_secret_name: "license"
   gloo-fed:
     enabled: false
     create_license_secret: false
