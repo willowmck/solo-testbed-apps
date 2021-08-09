@@ -5,8 +5,8 @@ bases:
 - ../istio/
 - ../../../../../manifests/app/frontend/hipstershop/base/productcatalog/0.2.4/
 
-#resources: 
-#- productcatalog-destination-rule.yaml
+resources: 
+- productcatalog-destination-rule.yaml
 
-#patchesStrategicMerge:
-#- patches/vs-patch.yaml
+patchesStrategicMerge:
+- patches/vs-patch.yaml
