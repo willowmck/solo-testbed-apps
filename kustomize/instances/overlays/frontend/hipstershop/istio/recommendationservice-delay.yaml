@@ -10,7 +10,7 @@ spec:
     - destination:
         host: recommendationservice
   - fault:
-    delay:
-      percentage:
-        value: 100
-      fixedDelay: 5s
+      delay:
+        percentage:
+          value: 100
+        fixedDelay: 5s
