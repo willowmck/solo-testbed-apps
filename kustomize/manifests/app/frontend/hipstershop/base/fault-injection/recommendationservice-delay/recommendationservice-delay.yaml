@@ -17,8 +17,8 @@ spec:
     route:
     - destination:
         host: recommendationservice
-        subset: v1
+        #subset: v1
   - route:
     - destination:
         host: recommendationservice
-        subset: v1
+        #subset: v1
