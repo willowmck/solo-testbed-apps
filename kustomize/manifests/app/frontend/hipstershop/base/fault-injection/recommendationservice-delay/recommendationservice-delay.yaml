@@ -12,7 +12,7 @@ spec:
     fault:
       delay:
         percentage:
-          value: 0
+          value: 100.0
         fixedDelay: 5s
     route:
     - destination:
