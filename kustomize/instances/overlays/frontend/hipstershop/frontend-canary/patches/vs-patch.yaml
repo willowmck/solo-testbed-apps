@@ -15,9 +15,9 @@ spec:
     - destination:
         host: frontend
         port:
-          number: 50
+          number: 80
         subset: v1
-      weight: 0
+      weight: 50
     - destination:
         host: frontend
         port:
