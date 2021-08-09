@@ -13,7 +13,7 @@ spec:
       delay:
         percentage:
           value: 100.0
-        fixedDelay: 5s
+        fixedDelay: 1s
     route:
     - destination:
         host: recommendationservice
