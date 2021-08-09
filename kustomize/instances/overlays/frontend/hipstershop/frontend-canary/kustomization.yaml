@@ -4,3 +4,9 @@ kind: Kustomization
 bases:
 - ../istio/
 - ../../../../../manifests/app/frontend/hipstershop/base/frontend/0.2.4/
+
+resources: 
+- frontend-destination-rule.yaml
+
+patchesStrategicMerge:
+- patches/vs-patch.yaml
