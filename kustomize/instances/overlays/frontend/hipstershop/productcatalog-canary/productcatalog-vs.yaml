@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: hipstershop-vs
+  name: productcatalog-canary-vs
 spec:
   hosts:
   - 'productcatalogservice'
