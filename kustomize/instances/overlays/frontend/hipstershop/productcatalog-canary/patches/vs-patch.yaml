@@ -14,13 +14,9 @@ spec:
     route:
     - destination:
         host: productcatalogservice
-        port:
-          number: 3550
         subset: v1
       weight: 50
     - destination:
         host: productcatalogservice
-        port:
-          number: 3550
         subset: v2
       weight: 50
