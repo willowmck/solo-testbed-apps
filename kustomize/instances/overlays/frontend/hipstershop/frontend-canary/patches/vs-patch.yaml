@@ -6,7 +6,7 @@ spec:
   gateways:
   - hipstershop-gateway
   hosts:
-  - frontend
+  - '*'
   http:
   - match:
     - uri:
