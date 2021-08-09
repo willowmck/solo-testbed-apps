@@ -4,4 +4,4 @@ kind: Kustomization
 
 # list of Resource Config to be Applied
 resources:
-- net-istio.yaml
+- net-istio-permissive.yaml
