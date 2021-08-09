@@ -17,10 +17,10 @@ spec:
         port:
           number: 80
         subset: v1
-      weight: 80
+      weight: 100
     - destination:
         host: frontend
         port:
           number: 80
         subset: v2
-      weight: 20
+      weight: 0
