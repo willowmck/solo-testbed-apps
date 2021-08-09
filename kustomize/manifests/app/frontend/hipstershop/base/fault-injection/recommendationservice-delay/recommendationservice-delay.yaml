@@ -12,8 +12,8 @@ spec:
     fault:
       delay:
         percentage:
-          value: 100.0
-        fixedDelay: 1s
+          value: 0
+        fixedDelay: 5s
     route:
     - destination:
         host: recommendationservice
