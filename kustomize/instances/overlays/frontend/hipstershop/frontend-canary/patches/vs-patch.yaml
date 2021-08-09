@@ -20,5 +20,5 @@ spec:
     - destination:
         host: frontend
         port:
-          number: 80
+          number: 20
         subset: v2
