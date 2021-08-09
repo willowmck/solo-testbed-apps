@@ -9,7 +9,7 @@ spec:
   - route:
     - destination:
         host: recommendationservice
-  fault:
+  - fault:
     delay:
       percentage:
         value: 100
