@@ -7,6 +7,4 @@ bases:
 
 resources: 
 - productcatalog-destination-rule.yaml
-
-patchesStrategicMerge:
-- patches/vs-patch.yaml
+- productcatalog-vs.yaml
