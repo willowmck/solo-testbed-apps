@@ -8,5 +8,5 @@ bases:
 #resources: 
 #- frontend-destination-rule.yaml
 
-#patchesStrategicMerge:
-#- patches/vs-patch.yaml
+patchesStrategicMerge:
+- patches/vs-patch.yaml
