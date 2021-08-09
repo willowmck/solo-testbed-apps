@@ -8,3 +8,4 @@ resources:
 - hipstershop-ns.yaml
 - hipstershop-gateway.yaml
 - hipstershop-vs.yaml
+- recommendationservice-delay.yaml
