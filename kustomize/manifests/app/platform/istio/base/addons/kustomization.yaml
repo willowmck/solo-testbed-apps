@@ -9,6 +9,6 @@ resources:
 - kiali.yaml
 - prometheus-operator.yaml
 - prometheus.yaml
-- prometheus_vm_tls.yaml
-- prometheus_vm.yaml
+#- prometheus_vm_tls.yaml
+#- prometheus_vm.yaml
 - zipkin.yaml
