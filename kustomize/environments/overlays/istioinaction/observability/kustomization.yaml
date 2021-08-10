@@ -4,6 +4,7 @@ kind: Kustomization
 
 bases: 
 - ../../../../instances/overlays/platform/kiali/
+- ../../../../manifests/app/platform/istio/base/dashboards/
 
 resources:
 - 1-9-5-configmap.yaml
