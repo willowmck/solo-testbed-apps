@@ -10,11 +10,11 @@ spec:
     - destination:
         host: productcatalogservice
         subset: v1
-      weight: 50
+      weight: 100
     - destination:
         host: productcatalogservice
         subset: v2
-      weight: 50
+      weight: 0
     retries:
       attempts: 3
       perTryTimeout: 4s
