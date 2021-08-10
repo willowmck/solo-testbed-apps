@@ -7,5 +7,5 @@ resources:
 - grafana.yaml
 - jaeger.yaml
 #- kiali.yaml
-- prometheus-operator.yaml
+#- prometheus-operator.yaml
 - prometheus.yaml
