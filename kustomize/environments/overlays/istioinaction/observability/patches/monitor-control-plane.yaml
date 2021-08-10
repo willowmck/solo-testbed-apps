@@ -2,10 +2,10 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: istio-component-monitor
-  namespace: istio-system
+  namespace: prometheus
   labels:
     monitoring: istio-components
-    release: istio
+    release: prom
 spec:
   jobLabel: istio
   targetLabels: [app]
