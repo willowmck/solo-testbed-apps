@@ -6,6 +6,9 @@ kind: Kustomization
 resources:
 - grafana.yaml
 - jaeger.yaml
-#- kiali.yaml
-#- prometheus-operator.yaml
+- kiali.yaml
+- prometheus-operator.yaml
 - prometheus.yaml
+- prometheus_vm_tls.yaml
+- prometheus_vm.yaml
+- zipkin.yaml
