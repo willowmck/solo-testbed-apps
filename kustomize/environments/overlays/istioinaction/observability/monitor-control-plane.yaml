@@ -5,8 +5,7 @@ metadata:
   namespace: prometheus
   labels:
     monitoring: istio-components
-    #release: prom
-    release: istio
+    release: prom
 spec:
   jobLabel: istio
   targetLabels: [app]
