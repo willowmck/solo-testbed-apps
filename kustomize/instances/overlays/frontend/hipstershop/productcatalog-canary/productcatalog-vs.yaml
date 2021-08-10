@@ -20,6 +20,6 @@ spec:
       perTryTimeout: 4s
     fault:
       delay:
-        percent: 100
+        percent: 0
         fixedDelay: 10s
       
