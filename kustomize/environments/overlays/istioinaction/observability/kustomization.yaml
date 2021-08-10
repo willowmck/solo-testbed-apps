@@ -7,7 +7,6 @@ bases:
 - ../../../../manifests/app/platform/istio/base/dashboards/
 
 resources:
-#- 1-9-5-configmap.yaml
-#- monitor-control-plane.yaml
-#- monitor-data-plane.yaml
-- newconfig.yaml
+- 1-9-5-configmap.yaml
+- monitor-control-plane.yaml
+- monitor-data-plane.yaml
