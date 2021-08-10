@@ -6,5 +6,5 @@ bases:
 - ../../../../../manifests/app/frontend/hipstershop/base/productcatalog/0.2.4/
 
 resources: 
-- productcatalog-destination-rule.yaml
-- productcatalog-vs.yaml
+#- productcatalog-destination-rule.yaml
+#- productcatalog-vs.yaml
