@@ -4,7 +4,7 @@ metadata:
   name: productcatalog-canary-vs
 spec:
   hosts:
-  - 'productcatalogservice'
+  - 'productcatalogservice-canary.hipstershop.svc.cluster.local'
   http:
   - route:
     - destination:
