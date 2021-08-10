@@ -8,11 +8,11 @@ spec:
   http:
   - route:
     - destination:
-        host: productcatalogservice-dr
+        host: productcatalogservice
         subset: v1
       weight: 100
     - destination:
-        host: productcatalogservice-dr
+        host: productcatalogservice
         subset: v2
       weight: 0
     retries:
