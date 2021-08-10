@@ -8,11 +8,11 @@ spec:
   http:
   - route:
     - destination:
-        host: productcatalogservice.hipstershop.svc.cluster.local
+        host: productcatalogservice
         subset: v1
       weight: 100
     - destination:
-        host: productcatalogservice.hipstershop.svc.cluster.local
+        host: productcatalogservice
         subset: v2
       weight: 0
     retries:
