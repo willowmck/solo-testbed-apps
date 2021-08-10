@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-observability-config
+  name: istioinaction-observability-config
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
