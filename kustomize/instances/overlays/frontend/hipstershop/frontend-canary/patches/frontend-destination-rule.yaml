@@ -1,9 +1,9 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: productcatalogservice-dr
+  name: frontend-destination-rule
 spec:
-  host: productcatalogservice.hipstershop.svc.cluster.local
+  host: frontend
   subsets: 
   - name: v1
     labels:

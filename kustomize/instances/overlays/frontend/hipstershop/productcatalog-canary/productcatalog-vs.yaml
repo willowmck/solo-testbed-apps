@@ -4,15 +4,15 @@ metadata:
   name: productcatalog-canary-vs
 spec:
   hosts:
-  - 'productcatalogservice'
+  - 'productcatalogservice.hipstershop.svc.cluster.local'
   http:
   - route:
     - destination:
-        host: productcatalogservice
+        host: productcatalogservice-dr
         subset: v1
       weight: 100
     - destination:
-        host: productcatalogservice
+        host: productcatalogservice-dr
         subset: v2
       weight: 0
     retries:
