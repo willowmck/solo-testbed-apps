@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: productcatalogservice
+  name: productcatalogservice-canary
 spec:
   host: productcatalogservice.hipstershop.svc.cluster.local
   subsets: 
