@@ -24,3 +24,6 @@ spec:
           number: 80
         subset: v2
       weight: 50
+    retries:
+      attempts: 3
+      perTryTimeout: 4s
