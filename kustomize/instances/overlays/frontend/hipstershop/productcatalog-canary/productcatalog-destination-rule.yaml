@@ -3,7 +3,7 @@ kind: DestinationRule
 metadata:
   name: productcatalogservice-dr
 spec:
-  host: productcatalogservice.hipstershop.svc.cluster.local
+  host: productcatalogservice
   subsets: 
   - name: v1
     labels:
