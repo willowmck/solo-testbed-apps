@@ -5,7 +5,8 @@ metadata:
   namespace: prometheus
   labels:
     monitoring: istio-proxies
-    release: prom
+    #release: prom
+    release: istio
 spec:
   selector:
     matchExpressions:
