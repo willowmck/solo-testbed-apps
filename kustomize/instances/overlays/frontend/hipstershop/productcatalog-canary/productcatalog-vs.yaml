@@ -15,3 +15,7 @@ spec:
         host: productcatalogservice
         subset: v2
       weight: 5
+    retries:
+      attempts: 3
+      perTryTimeout: 2s
+      
