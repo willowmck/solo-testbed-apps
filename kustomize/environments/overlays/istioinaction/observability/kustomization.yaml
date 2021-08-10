@@ -8,5 +8,6 @@ bases:
 
 resources:
 #- 1-9-5-configmap.yaml
-- monitor-control-plane.yaml
-- monitor-data-plane.yaml
+#- monitor-control-plane.yaml
+#- monitor-data-plane.yaml
+- newconfig.yaml
