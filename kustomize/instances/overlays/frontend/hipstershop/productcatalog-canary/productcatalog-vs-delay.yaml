@@ -12,12 +12,12 @@ spec:
             host: productcatalogservice
             subset: v1
           weight: 0
-        - fault:
-            delay:
-              percent: 100
-              fixedDelay: 10s
     - route: 
         - destination: 
             host: productcatalogservice
             subset: v2
           weight: 100
+    - fault:
+            delay:
+              percent: 0
+              fixedDelay: 10s
