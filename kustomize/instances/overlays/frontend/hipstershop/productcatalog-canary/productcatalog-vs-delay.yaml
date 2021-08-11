@@ -17,11 +17,11 @@ spec:
           destination: 
             host: productcatalogservice
             subset: v1
-          weight: 100
+          weight: 0
     - 
       route: 
         - 
           destination: 
             host: productcatalogservice
             subset: v2
-          weight: 0
+          weight: 100
