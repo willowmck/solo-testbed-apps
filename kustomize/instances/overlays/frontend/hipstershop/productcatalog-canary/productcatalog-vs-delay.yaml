@@ -7,6 +7,10 @@ spec:
   hosts: 
     - productcatalogservice
   http: 
+    - fault: 
+        delay: 
+          percent: 0
+          fixedDelay: 10s
     - route: 
         - destination: 
             host: productcatalogservice
@@ -17,7 +21,3 @@ spec:
             host: productcatalogservice
             subset: v2
           weight: 100
-    - fault:
-            delay:
-              percent: 0
-              fixedDelay: 10s
