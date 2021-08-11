@@ -7,5 +7,5 @@ bases:
 
 resources: 
 - productcatalog-destination-rule.yaml
-#- productcatalog-vs-delay.yaml
-- productcatalog-vs-abort.yaml
+- productcatalog-vs-delay.yaml
+#- productcatalog-vs-abort.yaml
