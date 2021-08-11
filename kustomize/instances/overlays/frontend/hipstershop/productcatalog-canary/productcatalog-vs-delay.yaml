@@ -10,7 +10,7 @@ spec:
     - destination:
         host: productcatalogservice
         subset: v1
-      weight: 100
+      weight: 0
     fault:
       delay:
         percent: 100
@@ -19,7 +19,7 @@ spec:
     - destination:
         host: productcatalogservice
         subset: v2
-      weight: 0
+      weight: 100
     fault:
       delay:
         percent: 0
