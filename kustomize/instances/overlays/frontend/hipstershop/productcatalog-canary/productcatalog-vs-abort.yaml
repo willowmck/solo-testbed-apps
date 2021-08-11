@@ -22,4 +22,4 @@ spec:
         abort: 
           httpStatus: 500
           percentage: 
-            value: 100
+            value: 50
