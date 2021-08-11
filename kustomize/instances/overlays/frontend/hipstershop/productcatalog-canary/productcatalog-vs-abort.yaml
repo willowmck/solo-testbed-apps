@@ -1,0 +1,28 @@
+--- 
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata: 
+  name: productcatalog-canary-vs
+spec: 
+  hosts: 
+    - productcatalogservice
+  http: 
+    - 
+      fault: 
+        abort: 
+          httpStatus: 500
+          percentage: 
+            value: 100
+      route: 
+        - 
+          destination: 
+            host: productcatalogservice
+            subset: v1
+          weight: 100
+    - 
+      route: 
+        - 
+          destination: 
+            host: productcatalogservice
+            subset: v2
+          weight: 0
