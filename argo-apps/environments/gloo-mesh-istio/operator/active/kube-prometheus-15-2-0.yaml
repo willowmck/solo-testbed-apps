@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: prometheus
+    namespace: istio-system
   project: default
   source:
     chart: kube-prometheus-stack
