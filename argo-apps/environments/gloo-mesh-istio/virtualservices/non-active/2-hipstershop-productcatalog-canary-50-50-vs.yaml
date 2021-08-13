@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hipstershop-productcatalog-canary-v2-100-vs
+  name: hipstershop-productcatalog-canary-50-50-vs
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
