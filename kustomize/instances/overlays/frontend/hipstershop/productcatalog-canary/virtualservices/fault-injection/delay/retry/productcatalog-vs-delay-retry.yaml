@@ -16,10 +16,10 @@ spec:
         subset: v2
       weight: 0
     retries:
-      attempts: 10
-      perTryTimeout: 1s
+      attempts: 0
+      perTryTimeout: 2s
     fault:
       delay:
-        percent: 25
+        percent: 1
         fixedDelay: 15s
       
