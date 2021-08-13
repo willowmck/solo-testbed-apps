@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
 - hipstershop-vs.yaml
-- hipstershop-gateway.yaml
+#- hipstershop-gateway.yaml
