@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/instances/overlays/frontend/hipstershop/istio/virtualservices/default/
+    path: kustomize/instances/overlays/frontend/hipstershop/istio/virtualservices/frontend/
   destination:
     server: https://kubernetes.default.svc
     namespace: hipstershop
