@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hipstershop-productcatalog-canary-3s-delay
+  name: hipstershop-productcatalog-canary-v2-fixed
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io

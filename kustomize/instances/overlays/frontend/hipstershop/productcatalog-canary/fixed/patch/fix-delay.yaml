@@ -3,9 +3,22 @@ kind: Deployment
 metadata:
   name: productcatalogservice-v2
 spec:
+  selector:
+    matchLabels:
+      app: productcatalogservice
   template:
+    metadata:
+      labels:
+        app: productcatalogservice
+        version: v0.2.4
     spec:
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 5
       containers:
+      - name: server
+        image: gcr.io/google-samples/microservices-demo/productcatalogservice:v0.2.4
+        ports:
+        - containerPort: 3550
         env:
         - name: PORT
           value: "3550"
