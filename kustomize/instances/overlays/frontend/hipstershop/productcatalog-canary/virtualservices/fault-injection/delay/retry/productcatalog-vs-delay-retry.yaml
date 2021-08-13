@@ -22,5 +22,5 @@ spec:
       delay:
         fixedDelay: 15s
         percentage:
-          value: 1
+          value: 0
       
