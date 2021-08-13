@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/instances/overlays/frontend/hipstershop/productcatalog-canary/virtualservices/fault-injection/delay/
+    path: kustomize/instances/overlays/frontend/hipstershop/productcatalog-canary/virtualservices/fault-injection/delay/retry/
   destination:
     server: https://kubernetes.default.svc
     namespace: hipstershop
