@@ -17,7 +17,7 @@ spec:
       weight: 0
     retries:
       attempts: 10
-      perTryTimeout: 3s
+      perTryTimeout: 1s
     fault:
       delay:
         percent: 25
