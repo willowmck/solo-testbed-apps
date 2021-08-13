@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hipstershop-productcatalog-canary-vs
+  name: hipstershop-productcatalog-canary-v1-100-vs
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/instances/overlays/frontend/hipstershop/productcatalog-canary/virtualservices/
+    path: kustomize/instances/overlays/frontend/hipstershop/productcatalog-canary/virtualservices/v1-100/
   destination:
     server: https://kubernetes.default.svc
     namespace: hipstershop
