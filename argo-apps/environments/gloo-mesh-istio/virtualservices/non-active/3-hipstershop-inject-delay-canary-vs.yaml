@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 3-hipstershop-inject-delay-canary-vs
+  name: hipstershop-inject-delay-canary-vs
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
