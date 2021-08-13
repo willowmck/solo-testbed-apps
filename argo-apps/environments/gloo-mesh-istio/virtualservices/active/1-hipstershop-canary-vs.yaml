@@ -13,7 +13,7 @@ spec:
     path: kustomize/instances/overlays/frontend/hipstershop/istio/virtualservices/productcatalog-canary/
   destination:
     server: https://kubernetes.default.svc
-    namespace: hipstershop
+    namespace: istio-system
   syncPolicy:
     automated:
       prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
