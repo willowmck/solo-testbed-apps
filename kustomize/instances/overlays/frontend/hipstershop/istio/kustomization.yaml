@@ -7,4 +7,3 @@ bases:
 resources: 
 - hipstershop-ns.yaml
 - hipstershop-gateway.yaml
-#- hipstershop-vs.yaml
