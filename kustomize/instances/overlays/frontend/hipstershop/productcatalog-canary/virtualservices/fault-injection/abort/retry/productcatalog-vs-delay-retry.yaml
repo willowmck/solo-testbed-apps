@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: productcatalog-canary-delay-retry-vs
+spec:
+  hosts:
+  - 'productcatalogservice'
+  http:
+  - route:
+    - destination:
+        host: productcatalogservice
+        subset: v1
+      weight: 100
+    - destination:
+        host: productcatalogservice
+        subset: v2
+      weight: 0
+    retries:
+      attempts: 3
+      perTryTimeout: 4s
+    fault:
+      delay:
+        percent: 100
+        fixedDelay: 3s
+      

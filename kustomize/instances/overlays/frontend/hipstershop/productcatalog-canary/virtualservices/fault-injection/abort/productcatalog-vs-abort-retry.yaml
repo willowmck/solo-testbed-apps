@@ -20,3 +20,6 @@ spec:
           httpStatus: 500
           percentage: 
             value: 50
+    retries:
+      attempts: 3
+      retryOn: 5xx
