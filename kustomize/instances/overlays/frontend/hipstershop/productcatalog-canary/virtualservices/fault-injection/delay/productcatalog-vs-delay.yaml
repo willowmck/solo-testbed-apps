@@ -17,6 +17,6 @@ spec:
       weight: 0
     fault:
       delay:
-        percent: 50
-        fixedDelay: 10s
+        percent: 0
+        fixedDelay: 1s
       
