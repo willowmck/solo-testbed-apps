@@ -1,0 +1,16 @@
+apiVersion: gateway.solo.io/v1
+kind: RouteTable
+metadata:
+  name: httpbin-b-routetable
+  namespace: httpbin
+spec:
+  routes:
+    - matchers:
+        - prefix: /b
+      options:
+        prefixRewrite: '/headers'
+      routeAction:
+          single:
+            upstream:
+              name: httpbin-httpbin-8000
+              namespace: gloo-system
