@@ -3,6 +3,3 @@ kind: Kustomization
 
 bases:
 - ../../../../../manifests/app/frontend/bookinfo/base
-
-resources:
-- reviews-v2.yaml
