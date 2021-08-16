@@ -1,7 +1,7 @@
 apiVersion: gateway.solo.io/v1
 kind: VirtualService
 metadata:
-  name: httpbin-routetable-vs
+  name: bookinfo-routetable-vs
   namespace: gloo-system
 spec:
   virtualHost:
@@ -13,14 +13,14 @@ spec:
 # ------------- Delegation action by reference A ------------------
         delegateAction:
           ref:
-            name: 'httpbin-a-routetable'
-            namespace: 'httpbin'
+            name: 'bookinfo-v1-routetable'
+            namespace: 'bookinfo-v1'
 # ---------------------------------------------------------------
       - matchers:
           - prefix: /beta
 # ------------- Delegation action by reference B ------------------
         delegateAction:
           ref:
-            name: 'httpbin-b-routetable'
-            namespace: 'httpbin'
+            name: 'bookinfo-beta-routetable'
+            namespace: 'bookinfo-beta'
 # ---------------------------------------------------------------

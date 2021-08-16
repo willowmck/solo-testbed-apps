@@ -1,16 +1,16 @@
 apiVersion: gateway.solo.io/v1
 kind: RouteTable
 metadata:
-  name: httpbin-b-routetable
-  namespace: httpbin
+  name: bookinfo-beta-routetable
+  namespace: bookinfo-beta
 spec:
   routes:
     - matchers:
-        - prefix: /b
+        - prefix: /beta
       options:
-        prefixRewrite: '/headers'
+        prefixRewrite: '/productpage'
       routeAction:
           single:
             upstream:
-              name: httpbin-httpbin-8000
+              name: bookinfo-beta-productpage-9080
               namespace: gloo-system
