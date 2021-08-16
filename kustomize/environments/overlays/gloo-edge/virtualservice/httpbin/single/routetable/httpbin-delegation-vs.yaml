@@ -1,0 +1,26 @@
+apiVersion: gateway.solo.io/v1
+kind: VirtualService
+metadata:
+  name: httpbin-routetable-vs
+  namespace: gloo-system
+spec:
+  virtualHost:
+    domains:
+      - 'httpbin.solo.io'
+    routes:
+      - matchers:
+          - prefix: /a
+# ------------- Delegation action by reference A ------------------
+        delegateAction:
+          ref:
+            name: 'httpbin-a-routetable'
+            namespace: 'httpbin'
+# ---------------------------------------------------------------
+      - matchers:
+          - prefix: /b
+# ------------- Delegation action by reference B ------------------
+        delegateAction:
+          ref:
+            name: 'httpbin-b-routetable'
+            namespace: 'httpbin'
+# ---------------------------------------------------------------
