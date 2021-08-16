@@ -5,9 +5,10 @@ metadata:
   namespace: gloo-system
 spec:
 # ------------- enable tls ------------------
-  #sslConfig:
-  #  secretRef:
-  #    name: upstream-tls
+  sslConfig:
+    secretRef:
+      name: upstream-tls
+      namespace: gloo-system
 # ---------------------------------------------------------------
   virtualHost:
     options:
