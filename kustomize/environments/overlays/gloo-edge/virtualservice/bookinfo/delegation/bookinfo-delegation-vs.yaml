@@ -15,12 +15,10 @@ spec:
           ref:
             name: 'bookinfo-v1-routetable'
             namespace: 'bookinfo-v1'
-# ---------------------------------------------------------------
+# ------------- Delegation action by reference B ------------------
       - matchers:
           - prefix: /beta
-# ------------- Delegation action by reference B ------------------
         delegateAction:
           ref:
             name: 'bookinfo-beta-routetable'
             namespace: 'bookinfo-beta'
-# ---------------------------------------------------------------

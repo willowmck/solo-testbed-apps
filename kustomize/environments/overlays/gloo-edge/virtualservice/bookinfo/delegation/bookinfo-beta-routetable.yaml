@@ -8,7 +8,7 @@ spec:
     - matchers:
         - prefix: /beta
       options:
-        prefixRewrite: '/productpage'
+        prefixRewrite: '/'
       routeAction:
           single:
             upstream:
