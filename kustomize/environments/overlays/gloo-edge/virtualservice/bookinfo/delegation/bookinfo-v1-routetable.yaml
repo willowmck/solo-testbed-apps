@@ -8,7 +8,7 @@ spec:
     - matchers:
         - prefix: /v1
       options:
-        prefixRewrite: '/'
+        prefixRewrite: '/productpage'
       routeAction:
           single:
             upstream:
