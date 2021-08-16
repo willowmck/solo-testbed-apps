@@ -6,9 +6,9 @@ metadata:
 spec:
   routes:
     - matchers:
-        - prefix: /v1
+        - prefix: /
       options:
-        prefixRewrite: '/productpage'
+        prefixRewrite: '/'
       routeAction:
           single:
             upstream:

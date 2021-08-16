@@ -1,4 +1,3 @@
-apiVersion: gateway.solo.io/v1
 kind: VirtualService
 metadata:
   name: bookinfo-routetable-vs
@@ -9,7 +8,7 @@ spec:
       - '*'
     routes:
       - matchers:
-          - prefix: /v1
+          - prefix: /
 # ------------- Delegation action by reference A ------------------
         delegateAction:
           ref:
