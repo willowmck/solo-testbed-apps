@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+ labels:
+   app: bluegreen
+   text: green
+ name: service-bluegreen
+ namespace: default
+spec:
+ ports:
+ - name: color
+   port: 8080
+   protocol: TCP
+   targetPort: 8080
+ selector:
+   app: bluegreen
+   text: green
+ sessionAffinity: None
+ type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ labels:
+   app: bluegreen
+   text: green
+ name: echo-green
+ namespace: default
+spec:
+ replicas: 1
+ selector:
+   matchLabels:
+     app: bluegreen
+     text: green
+ template:
+   metadata:
+     labels:
+       app: bluegreen
+       text: green
+   spec:
+     containers:
+     - args:
+       - -listen=:8080
+       - -text="green-pod"
+       image: hashicorp/http-echo
+       name: echo
+       ports:
+       - containerPort: 80

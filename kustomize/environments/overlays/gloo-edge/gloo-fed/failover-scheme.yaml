@@ -1,0 +1,16 @@
+apiVersion: fed.solo.io/v1
+kind: FailoverScheme
+metadata:
+ name: failover-scheme
+ namespace: gloo-system
+spec:
+ failoverGroups:
+ - priorityGroup:
+   - cluster: cluster5
+     upstreams:
+     - name: default-service-bluegreen-8080
+       namespace: gloo-system
+ primary:
+   clusterName: cluster4
+   name: default-service-bluegreen-8080
+   namespace: gloo-system
