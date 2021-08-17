@@ -3,5 +3,4 @@ kind: Kustomization
 
 resources:
 - bookinfo-v1-routetable.yaml
-- bookinfo-beta-routetable.yaml
-- bookinfo-advanced-delegation-vs.yaml
+- bookinfo-delegation-vs.yaml
