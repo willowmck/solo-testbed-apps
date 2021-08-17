@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: 8-bookinfo-delegation-multi-vs
+  name: bookinfo-delegation-multi-vs
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
