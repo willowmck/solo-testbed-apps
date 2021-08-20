@@ -7,7 +7,7 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: gloo-system
+    namespace: dev-portal
     server: https://kubernetes.default.svc
   project: default
   source:
@@ -27,3 +27,5 @@ spec:
     automated:
       prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
       selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+    syncOptions:
+      - CreateNamespace=true
