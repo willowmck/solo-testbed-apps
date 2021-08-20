@@ -3,3 +3,6 @@ kind: Kustomization
 
 bases:
 - ../../../../../../manifests/app/frontend/petstore/swaggerapi/v2/
+
+resources:
+- petstore-v2-apidoc.yaml
