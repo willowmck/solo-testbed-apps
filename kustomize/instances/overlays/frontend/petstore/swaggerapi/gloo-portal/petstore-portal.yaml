@@ -28,7 +28,7 @@ spec:
       key: client_secret
     groupClaimKey: group
     # testing this
-    issuer: http://172.18.5.1:8080//auth/realms/master
+    issuer: http://172.18.5.1:8080/auth/realms/master
     #issuer: ${KEYCLOAK_URL}/realms/master
   portalUrlPrefix: http://portal.petstore.com/
 
