@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/instances/overlays/frontend/petstore/swaggerapi/apiproduct/
+    path: kustomize/instances/overlays/frontend/petstore/swaggerapi/gloo-portal/
   destination:
     server: https://kubernetes.default.svc
     namespace: default
