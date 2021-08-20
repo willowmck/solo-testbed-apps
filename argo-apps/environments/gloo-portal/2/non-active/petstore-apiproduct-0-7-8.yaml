@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: petstore-swagger-apiproduct
+  name: petstore-swagger-apiproduct-0-7-8
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ably77/solo-testbed-apps
     targetRevision: HEAD
-    path: kustomize/instances/overlays/frontend/petstore/swaggerapi/gloo-portal/
+    path: kustomize/instances/overlays/frontend/petstore/swaggerapi/gloo-portal-0-7-8/
   destination:
     server: https://kubernetes.default.svc
     namespace: default
