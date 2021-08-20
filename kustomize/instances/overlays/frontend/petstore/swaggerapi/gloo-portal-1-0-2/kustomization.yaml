@@ -5,5 +5,5 @@ resources:
 - petstore-apidoc.yaml
 - petstore-apiproduct.yaml
 - dev-environment.yaml
-#- oidc-group.yaml
+- oidc-group.yaml
 - developers-group.yaml
