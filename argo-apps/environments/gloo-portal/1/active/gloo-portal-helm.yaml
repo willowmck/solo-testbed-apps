@@ -7,22 +7,26 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: dev-portal
+    namespace: gloo-portal
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: dev-portal
+    chart: gloo-portal
     helm:
       values: |
-        gloo:
+        glooEdge:
           enabled: true
-        licenseKey:
+        istio:
+          enabled: false
+        glooMesh:
+          enabled: false
+        licenseKey: 
           secretRef:
             name: license
-            namespace: gloo-system
+            namespace: gloo-portal
             key: license-key
     repoURL: https://storage.googleapis.com/dev-portal-helm
-    targetRevision: 0.7.6
+    targetRevision: 1.1.0-beta4
   syncPolicy:
     automated:
       prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
