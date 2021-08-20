@@ -5,7 +5,7 @@
 # Use this if you wish to reference an existing license secret
   secretRef:
     name: license
-    namespace: gloo-system
+    namespace: gloo-portal
     key: license-key
 
 # Settings for the Gloo Portal integration with Gloo Edge Enterprise

@@ -13,7 +13,7 @@ spec:
     path: kustomize/instances/overlays/platform/gloo-portal/helm-customvalues
   destination:
     server: https://kubernetes.default.svc
-    namespace: dev-portal
+    namespace: gloo-portal
   syncPolicy:
     automated:
       prune: true
