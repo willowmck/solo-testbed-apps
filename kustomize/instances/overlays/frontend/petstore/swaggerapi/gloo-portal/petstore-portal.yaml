@@ -19,13 +19,17 @@ spec:
 
   oidcAuth:
     callbackUrlPrefix: http://portal.petstore.com/
-    clientId: ${KEYCLOAK_CLIENT}
+    # testing this
+    clientId: e358633c-5352-4933-b3f4-df5ab68ac1c1
+    #clientId: ${KEYCLOAK_CLIENT}
     clientSecret:
       name: petstore-portal-oidc-secret
       namespace: default
       key: client_secret
     groupClaimKey: group
-    issuer: ${KEYCLOAK_URL}/realms/master
+    # testing this
+    issuer: http://172.18.3.1:8080/auth/realms/master
+    #issuer: ${KEYCLOAK_URL}/realms/master
   portalUrlPrefix: http://portal.petstore.com/
 
   publishedEnvironments:
