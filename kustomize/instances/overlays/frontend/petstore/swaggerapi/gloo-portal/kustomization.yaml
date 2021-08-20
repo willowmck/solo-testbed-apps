@@ -4,5 +4,4 @@ kind: Kustomization
 resources:
 - petstore-apiproduct.yaml
 - dev-environment.yaml
-- petstore-portal.yaml
 - oidc-group.yaml
