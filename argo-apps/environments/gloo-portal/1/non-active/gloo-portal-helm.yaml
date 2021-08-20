@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: gloo-portal
+    chart: dev-portal
     helm:
       values: |
         gloo:
@@ -22,7 +22,7 @@ spec:
             namespace: gloo-system
             key: license-key
     repoURL: https://storage.googleapis.com/dev-portal-helm
-    targetRevision: 1.1.0-beta4
+    targetRevision: 0.7.6
   syncPolicy:
     automated:
       prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
