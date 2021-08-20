@@ -1,7 +1,7 @@
 # This needs to be either a valid Istio Gloo Portal license (when targeting the Istio Gateway),
 # or a valid Gloo Edge Enterprise license (when targeting the Gloo Edge).
 licenseKey:
-#  value: ""
+  value: ""
 # Use this if you wish to reference an existing license secret
   secretRef:
     name: license
