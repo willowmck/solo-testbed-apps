@@ -5,11 +5,11 @@ metadata:
   namespace: default
 spec:
   domains:
-  - dev.petstore.com
+  - petstore.example.com
   # If you are using Gloo Edge and the Gateway is listening on a port other than 80, 
   # you need to include a domain in this format: <DOMAIN>:<PORT>.
   # In this example we expect the Gateway to listen on port 32000.
-  - dev.petstore.com:32000
+  - petstore.example.com:32000
   displayInfo:
     description: This environment is meant for developers to deploy and test their APIs.
     displayName: Development
