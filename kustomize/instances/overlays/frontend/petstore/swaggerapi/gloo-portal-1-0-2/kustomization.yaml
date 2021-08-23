@@ -10,7 +10,7 @@ resources:
 - petstore-apiproduct.yaml    
 - dev-envionment.yaml
 - petstore-portal.yaml
-#- developer1-user.yaml
+- developer1-user.yaml
 
 secretGenerator:
 - name: developer1-password
