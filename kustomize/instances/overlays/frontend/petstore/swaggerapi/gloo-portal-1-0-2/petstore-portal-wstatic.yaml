@@ -13,7 +13,17 @@ spec:
   primaryLogo:
     fetchUrl: https://i.imgur.com/hjgPMNP.png
   customStyling: {}
-  staticPages: []
+  staticPages:
+  - content:
+      configMap:
+        key: faq
+        name: default-petstore-portal-faq
+        namespace: default
+    description: Frequently Asked Questions
+    displayOnHomepage: true
+    name: faq
+    navigationLinkName: FAQ
+    path: /faq
 
   domains:
   - portal.mycompany.corp

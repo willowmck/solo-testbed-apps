@@ -10,7 +10,9 @@ resources:
 - petstore-apiproduct.yaml    
 #- dev-environment.yaml
 - dev-environment-wplan.yaml
-- petstore-portal.yaml
+#- petstore-portal.yaml
+- petstore-portal-wstatic.yaml
+- default-petstore-portal-faq-cm.yaml
 #- developer-group.yaml
 - developer-group-wplan.yaml
 - developer1-user.yaml
