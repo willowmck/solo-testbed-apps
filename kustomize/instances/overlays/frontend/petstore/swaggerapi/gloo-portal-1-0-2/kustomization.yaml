@@ -11,13 +11,13 @@ resources:
 - dev-envionment.yaml
 - petstore-portal.yaml
 - developer-group.yaml
-- developer1-user.yaml
+#- developer1-user.yaml
 
-secretGenerator:
-- name: developer1-password
-  namespace: gloo-portal
-  literals:
-  - password=nothing1!
+#secretGenerator:
+#- name: developer1-password
+#  namespace: gloo-portal
+#  literals:
+#  - password=nothing1!
 
-generatorOptions:
-  disableNameSuffixHash: true
+#generatorOptions:
+#  disableNameSuffixHash: true
