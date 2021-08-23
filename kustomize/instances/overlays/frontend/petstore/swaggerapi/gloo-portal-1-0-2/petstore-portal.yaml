@@ -16,8 +16,7 @@ spec:
   staticPages: []
 
   domains:
-  #- portal.mycompany.corp
-  - '*'
+  - portal.mycompany.corp
 
   publishedEnvironments:
   - name: dev
