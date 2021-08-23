@@ -8,7 +8,8 @@ resources:
 - petstore-openapi-v1-users-apidoc.yaml
 - petstore-openapi-v2-full-apidoc.yaml
 - petstore-apiproduct.yaml    
-- dev-envionment.yaml
+#- dev-environment.yaml
+- dev-environment-wplan.yaml
 - petstore-portal.yaml
 - developer-group.yaml
 - developer1-user.yaml
