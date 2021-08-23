@@ -1,0 +1,33 @@
+apiVersion: portal.gloo.solo.io/v1beta1
+kind: Group
+metadata:
+  name: developers
+  namespace: gloo-portal
+spec:
+  accessLevel:
+    portals:
+    - name: ecommerce-portal
+      namespace: default
+    apis:
+    - products:
+        namespaces:
+        - "*"
+        labels:
+        - key: app
+          operator: Equals
+          values:
+          - petstore
+      environments:
+        namespaces:
+        - "*"
+      usagePlans:
+      - basic
+    portals:
+    - name: petstore-portal
+      namespace: default
+  displayName: ecommerce developers
+  userSelector:
+    matchLabels:
+      groups.portal.gloo.solo.io/gloo-portal.developers: "true"
+    namespaces:
+    - '*'

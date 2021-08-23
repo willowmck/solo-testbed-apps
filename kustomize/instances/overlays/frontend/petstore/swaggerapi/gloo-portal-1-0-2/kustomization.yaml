@@ -11,6 +11,7 @@ resources:
 #- dev-environment.yaml
 - dev-environment-wplan.yaml
 - petstore-portal.yaml
-- developer-group.yaml
+#- developer-group.yaml
+- developer-group-wplan.yaml
 - developer1-user.yaml
 - developer1-password.yaml
