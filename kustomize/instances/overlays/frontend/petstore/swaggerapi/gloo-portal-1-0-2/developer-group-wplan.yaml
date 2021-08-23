@@ -8,6 +8,8 @@ spec:
     portals:
     - name: ecommerce-portal
       namespace: default
+    - name: petstore-portal
+      namespace: default
     apis:
     - products:
         namespaces:
@@ -22,9 +24,6 @@ spec:
         - "*"
       usagePlans:
       - basic
-    portals:
-    - name: petstore-portal
-      namespace: default
   displayName: ecommerce developers
   userSelector:
     matchLabels:
