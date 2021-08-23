@@ -1,13 +1,14 @@
 apiVersion: portal.gloo.solo.io/v1beta1
 kind: User
 metadata:
-  name: developer1
-  namespace: gloo-portal
   labels:
     groups.portal.gloo.solo.io/gloo-portal.developers: "true"
+  name: developer1
+  namespace: gloo-portal
 spec:
   basicAuth:
     passwordSecretKey: password
     passwordSecretName: developer1-password
     passwordSecretNamespace: gloo-portal
+  email: developer@solo.io
   username: developer1
