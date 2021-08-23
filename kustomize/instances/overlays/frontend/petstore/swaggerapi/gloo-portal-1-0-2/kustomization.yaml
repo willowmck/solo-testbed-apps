@@ -11,7 +11,8 @@ resources:
 - dev-envionment.yaml
 - petstore-portal.yaml
 - developer-group.yaml
-#- developer1-user.yaml
+- developer1-user.yaml
+- developer1-password.yaml
 
 #secretGenerator:
 #- name: developer1-password

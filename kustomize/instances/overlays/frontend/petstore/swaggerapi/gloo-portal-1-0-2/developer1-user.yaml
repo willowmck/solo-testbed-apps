@@ -1,10 +1,6 @@
 apiVersion: portal.gloo.solo.io/v1beta1
 kind: User
 metadata:
-  annotations:
-  labels:
-    app.kubernetes.io/instance: petstore-swagger-apiproduct-1-0-2
-    groups.portal.gloo.solo.io/gloo-portal.developers: "true"
   name: developer1
   namespace: gloo-portal
 spec:
@@ -16,5 +12,4 @@ spec:
     passwordSecretKey: password
     passwordSecretName: developer1-password
     passwordSecretNamespace: gloo-portal
-  email: developer@solo.io
   username: developer1
