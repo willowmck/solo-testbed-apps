@@ -22,4 +22,4 @@ spec:
   - name: dev
     namespace: default
 
-  allApisPublicViewable: true
+  allApisPublicViewable: false
