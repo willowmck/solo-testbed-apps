@@ -17,7 +17,7 @@ spec:
   - content:
       configMap:
         key: faq
-        name: default-ecommerce-portal-faq-cm
+        name: default-petstore-portal-faq
         namespace: default
     description: Frequently Asked Questions
     displayOnHomepage: true
