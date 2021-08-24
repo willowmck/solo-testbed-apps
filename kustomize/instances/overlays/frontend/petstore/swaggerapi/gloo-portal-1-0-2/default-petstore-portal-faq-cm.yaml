@@ -1,7 +1,0 @@
-apiVersion: v1
-binaryData:
-  faq: KipROiBDYW4gSSB1c2UgeW91ciBBUEkgdG8gc2VlIGhvdyBtYW55IHBldHMgYXJlIGF2YWlsYWJsZSA/KioKClI6IFllcywgeW91IGNhbg==
-kind: ConfigMap
-metadata:
-  name: default-petstore-portal-faq
-  namespace: default
