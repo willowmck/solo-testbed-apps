@@ -1,34 +1,42 @@
 apiVersion: gateway.solo.io/v1
 kind: VirtualService
 metadata:
-  name: bookinfo-instance-rl-oidc-vs
+  name: bookinfo-vs
   namespace: gloo-system
 spec:
+# ------------------- secure TLS -------------------
   sslConfig:
     secretRef:
       name: upstream-tls
       namespace: gloo-system  
   virtualHost:
     options:
+# ------------------- extauth -------------------
       extauth:
         configRef:
           name: keycloak-oauth
           namespace: gloo-system
-# -------- Rate limit config by authenticated and anonymous -------
-      ratelimitBasic:
-        anonymousLimits:
-          requestsPerUnit: 5
-          unit: MINUTE
-        authorizedLimits:
-          requestsPerUnit: 20
-          unit: MINUTE
-# -----------------------------------------------------------------
+# ---------------- global rate limit config ------------------
+      rateLimitConfigs:
+        refs:
+        - name: global-limit
+          namespace: gloo-system
+# ---------------- waf ------------------   
+      waf:
+        customInterventionMessage: 'Username should only contain letters'
+        ruleSets:
+        - ruleStr: |
+            # Turn rule engine on
+            SecRuleEngine On
+            SecRule ARGS:/username/ "[^a-zA-Z]" "t:none,phase:2,deny,id:6,log,msg:'allow only letters in username'"
+#------------------------------------------------------
     domains:
       - '*'
     routes:
       - matchers:
           - prefix: /
         routeAction:
+# ------------------- traffic splitting -------------------
             multi:
                 destinations:
                 - weight: 5

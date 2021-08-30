@@ -2,4 +2,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- bookinfo-global-ratelimit-oidc-vs.yaml
+- 6b-bookinfo-grl-oidc-tls-vs.yaml

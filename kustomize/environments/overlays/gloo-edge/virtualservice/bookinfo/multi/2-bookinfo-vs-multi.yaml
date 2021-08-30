@@ -1,27 +1,17 @@
 apiVersion: gateway.solo.io/v1
 kind: VirtualService
 metadata:
-  name: bookinfo-oidc-tls-multi-vs
+  name: bookinfo-vs
   namespace: gloo-system
 spec:
-  sslConfig:
-    secretRef:
-      name: upstream-tls
-      namespace: gloo-system  
   virtualHost:
-# ------------------- OIDC -------------------
-    options:
-      extauth:
-        configRef:
-          name: keycloak-oauth
-          namespace: gloo-system
-#---------------------------------------------          
     domains:
       - '*'
     routes:
       - matchers:
           - prefix: /
         routeAction:
+# ------------------- traffic splitting -------------------
             multi:
                 destinations:
                 - weight: 5

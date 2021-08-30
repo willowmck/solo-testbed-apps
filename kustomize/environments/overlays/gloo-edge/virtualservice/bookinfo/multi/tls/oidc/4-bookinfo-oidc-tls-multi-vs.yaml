@@ -1,17 +1,29 @@
 apiVersion: gateway.solo.io/v1
 kind: VirtualService
 metadata:
-  name: bookinfo-multi-vs
+  name: bookinfo-vs
   namespace: gloo-system
 spec:
+# ------------------- secure TLS -------------------
+  sslConfig:
+    secretRef:
+      name: upstream-tls
+      namespace: gloo-system  
   virtualHost:
+# ------------------- extauth -------------------
+    options:
+      extauth:
+        configRef:
+          name: keycloak-oauth
+          namespace: gloo-system
+#---------------------------------------------          
     domains:
       - '*'
     routes:
       - matchers:
           - prefix: /
         routeAction:
-        # ----------------------- Multi Destination ----------------------
+# ------------------- traffic splitting -------------------
             multi:
                 destinations:
                 - weight: 5
