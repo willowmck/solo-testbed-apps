@@ -14,7 +14,7 @@ spec:
     chart: gloo-ee
     helm:
       values: |
-        license_key: eyJleHAiOjM4Nzk1MTY3ODYsImlhdCI6MTU1NDk0MDM0OCwiayI6IkJ3ZXZQQSJ9.tbJ9I9AUltZ-iMmHBertugI2YIg1Z8Q0v6anRjc66Jo        
+        license_key: <INSERT_LICENSE_KEY_HERE>        
     repoURL: http://storage.googleapis.com/gloo-ee-helm
     targetRevision: 1.7.7
   syncPolicy:
