@@ -9,3 +9,9 @@ spec:
   # This value can be any Gloo Mesh Istio tag
   tag: 1.10.3
   profile: default
+  values:
+    global:
+      meshID: mesh1
+      multiCluster:
+        clusterName: cluster1
+      network: kube-network
