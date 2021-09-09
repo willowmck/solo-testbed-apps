@@ -1,0 +1,15 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  name: gloo-mesh-istio
+  namespace: istio-system
+spec:
+  hub: gcr.io/istio-enterprise
+  profile: default
+  tag: 1.10.3
+  values:
+    global:
+      meshID: mesh1
+      multiCluster:
+        clusterName: cluster1
+      network: kube-network
