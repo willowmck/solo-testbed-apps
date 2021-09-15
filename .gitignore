@@ -3,3 +3,4 @@ argo-apps/instances/platform/gloo-mesh/gloo-mesh-ee-helm.yaml
 argo-apps/environments/gloo-edge-ee/edge/gloo-edge-ee-helm.yaml
 argo-apps/environments/gloo-edge/edge/gloo-edge-ee-helm.yaml
 argo-apps/environments/gloo-mesh/gloo-mesh-ee-helm.yaml
+.DS_Store

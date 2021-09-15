@@ -13,6 +13,7 @@
 
 ### Platform
 - argocd
+- argo-workflows
 - gloo-edge-oss helm chart
 - gloo-edge-ee helm chart
 - gloo-mesh-oss helm chart
